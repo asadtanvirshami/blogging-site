@@ -10,7 +10,7 @@ const blogFeed = ({ blogs, sessionData }) => {
     axios.defaults.withCredentials = true
     const router = Router
 
-    React.useEffect(() => {
+   useEffect(() => {
         if (sessionData.auth != true) {
             Router.push('/login')
         }
