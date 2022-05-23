@@ -1,30 +1,50 @@
 import React from 'react'
-import { HomeLayout } from '../components/layouts/HomeLayout'
 import axios from 'axios'
+import CooKies from 'js-cookie'
+import Router from 'next/router'
+import Cookies from 'cookies'
+import { IndexPage } from '../components/pagecomponents/IndexPage'
 
-const index = ({blogs}) => {
+
+const index = ({ sessionData }) => {
+
+  React.useEffect(() => {
+    if (sessionData.auth != true) {
+      Router.push('/login')
+    }
+  }, [])
+
+
+
   return (
-    <div className='home-styles'>
-      <div className='header'> <HomeLayout blogs={blogs} /> </div>
+    <div >
+
+      <IndexPage/>
     </div>
   )
 }
 
 export default index
 
-export async function getServerSideProps({req,res}){
+export async function getServerSideProps({ req, res }) {
+  // Fetch data from external API
+  const cookies = new Cookies(req, res)
+  const value = await axios.get(process.env.NEXT_PUBLIC_FP_GET_JWT, {
+    headers: {
+      "x-access-token": `${cookies.get('token')}`,
+      "user": `${cookies.get('user')}`,
+      "role": `${cookies.get('isAdmin')}`
+    }
+  }).then((x) => x.data);
+  console.log(value)
+  const sessionData = await value
 
-  // const sessionRequest = await axios.get(process.env.NEXT_PUBLIC_EVE_AUTHENTICATE_TOKEN,{
-  //     headers:{
-  //         "x-access-token": `${cookies.get('token')}`
-  //     }
-  // }).then((x)=>x.data);
-  // const sessionData = await sessionRequest
-
-  const request = await axios.get(process.env.NEXT_PUBLIC_FP_GET_BLOGS)
-  const blogs = await request.data
-
-  return{
-      props: { blogs: blogs }
+  // Pass data to the page via props
+  return {
+    props: { sessionData: sessionData }
   }
 }
+
+
+
+

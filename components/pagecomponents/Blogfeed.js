@@ -1,29 +1,30 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 
-export const HomeLayout = ({blogs}) => {
+export const BlogFeed = ({ blogs }) => {
 
   const [bogList, setBlogList] = useState([])
 
   useEffect(() => {
     setBlogList(blogs)
-  }, [])
+  }, [bogList])
 
-  const likeLog = async(id, i) => {
+  const likeLog = async (id, i) => {
 
     let like = false;
     // parse an array to find likes in local storage
 
-    if(like){
+    if (like) {
       // do nothibng
-    }else{
-      await axios.post(process.env.NEXT_PUBLIC_FP_LIKE_BLOG,{id:id}).then((x)=>{
+    } else {
+      await axios.post(process.env.NEXT_PUBLIC_FP_LIKE_BLOGS, { id: id }).then((x) => {
         console.log(x.status)
-        if(x.status===200){
+        if (x.status === 200) {
           let tempState = [...bogList];
-          tempState.forEach((x, index)=>{
-            if(index==i){
+          tempState.forEach((x, index) => {
+            if (index === i) {
               x.likes = x.likes + 1;
+              console.log(x.likes)
             }
           });
           setBlogList(tempState)
@@ -35,11 +36,12 @@ export const HomeLayout = ({blogs}) => {
   return (
     <div>
       {
-        bogList.map((bg, index)=>{
-          return(
+        bogList.map((bg, index) => {
+          return (
             <div key={index} className="my-3">
-                <div>{bg.name}</div>
-                <div> <button onClick={()=>likeLog(bg.id, index)}>Like</button> {bg.likes}</div>
+              <div>{bg.firstname}</div>
+              
+              <div> <button onClick={() => likeLog(bg.id, index)}>Like</button> {bg.likes}</div>
             </div>
           )
         })
@@ -47,3 +49,5 @@ export const HomeLayout = ({blogs}) => {
     </div>
   )
 }
+
+export default BlogFeed
