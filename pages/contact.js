@@ -4,6 +4,7 @@ import axios from 'axios'
 import Router from 'next/router'
 import Cookies from 'cookies'
 
+// eslint-disable-next-line react/display-name
 export const Contact = ({sessionData}) => {
 
     const [name, setName] = useState("")

@@ -4,6 +4,9 @@ import Cookiess from 'cookies';
 import {BlogFeedPage} from '../components/pagecomponents/BlogFeedPage'
 import Router from 'next/router';
 
+
+
+// eslint-disable-next-line react/display-name
 const BlogFeed = ({ blogs, sessionData }) => {
 
 
