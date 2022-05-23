@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import axios from 'axios'
 import CooKies from 'js-cookie'
 import Router from 'next/router'
@@ -8,7 +8,7 @@ import { IndexPage } from '../components/pagecomponents/IndexPage'
 
 const index = ({ sessionData }) => {
 
-  React.useEffect(() => {
+useEffect(() => {
     if (sessionData.auth != true) {
       Router.push('/login')
     }

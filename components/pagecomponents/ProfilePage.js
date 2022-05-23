@@ -173,7 +173,7 @@ export const ProfilePage = () => {
             {
                 detail.map((bit, index) => {
                     return (
-                        <div className="container mx-auto" >
+                        <div key={index} className="container mx-auto" >
                             <Form className="container mx-auto" >
 
                                 <br></br>

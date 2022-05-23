@@ -66,7 +66,7 @@ export const IndexPage = () => {
                   <p className="lead">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia.</p>
                 </div>
 
-                <div class="col-12 col-sm-6 pt-3 pt-sm-0">
+                <div className="col-12 col-sm-6 pt-3 pt-sm-0">
                   <h3><strong>Article.</strong></h3>
                   <p className="lead">Right at the coast of the Semantics, a large language ocean. A small river named Duden.</p>
                 </div>

@@ -18,7 +18,7 @@ export const createBlogger = ({ sessionData }, props) => {
 
 
 
-    React.useEffect(() => {
+    useEffect(() => {
         if (sessionData.auth != true) {
             Router.push('/login')
         }

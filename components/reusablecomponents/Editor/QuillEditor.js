@@ -8,7 +8,7 @@ import Cookies from 'js-cookie';
 
 
 export const Editor = ({ blog }, props) => {
-  const [blog, setBlog] = useState('')
+  const [Blog, setBlog] = useState('')
   const [titleLog, setTitle] = useState("");
   const [lastLog, setLast] = useState("");
   const [firstLog, setFirst] = useState("");
@@ -120,7 +120,7 @@ export const Editor = ({ blog }, props) => {
         firstName: firstLog,
         lastName: lastLog,
         blogName: titleLog,
-        content: blog,
+        content: Blog,
         userLog: name,
         Category: category,
         pfp: detail
@@ -170,7 +170,7 @@ export const Editor = ({ blog }, props) => {
           </Form.Group>
           <ReactQuill
             theme="snow"
-            value={blog}
+            value={Blog}
             onChange={onChange}
             placeholder={"Write something awesome..."}
             style={{ color: "white" }}

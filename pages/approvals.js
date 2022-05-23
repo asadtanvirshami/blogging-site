@@ -5,7 +5,7 @@ import ApprovalsPage from '../components/pagecomponents/ApprovalsPage'
 
 export const approvals = ({ sessionData }) => {
 
-    React.useEffect(() => {
+    useEffect(() => {
 
         if (sessionData.auth != true || sessionData.role != 'admin') {
             Router.push('/login')
