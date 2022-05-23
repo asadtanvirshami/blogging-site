@@ -6,7 +6,7 @@ import Cookies from 'cookies'
 import { IndexPage } from '../components/pagecomponents/IndexPage'
 
 
-const index = ({ sessionData }) => {
+const Index = ({ sessionData }) => {
 
 useEffect(() => {
     if (sessionData.auth != true) {
@@ -24,7 +24,7 @@ useEffect(() => {
   )
 }
 
-export default index
+export default Index
 
 export async function getServerSideProps({ req, res }) {
   // Fetch data from external API

@@ -3,7 +3,7 @@ import Cookiess from 'cookies'
 import axios from 'axios'
 import ApprovalsPage from '../components/pagecomponents/ApprovalsPage'
 
-export const approvals = ({ sessionData }) => {
+export const Approvals = ({ sessionData }) => {
 
     useEffect(() => {
 
@@ -19,7 +19,7 @@ export const approvals = ({ sessionData }) => {
   )
 }
 
-export default approvals
+export default Approvals
 
 
 export async function getServerSideProps({ req, res }) {

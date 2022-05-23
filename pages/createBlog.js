@@ -12,7 +12,7 @@ const Editor = dynamic(() =>
     import('../components/reusablecomponents/Editor/QuillEditor.js'), { ssr: false }
 )
 
-export const createBlogger = ({ sessionData }, props) => {
+export const CreateBlogger = ({ sessionData }, props) => {
 
 
 
@@ -39,7 +39,7 @@ export const createBlogger = ({ sessionData }, props) => {
         </div >
     )
 }
-export default createBlogger;
+export default CreateBlogger;
 
 
 export async function getServerSideProps({ req, res }) {

@@ -4,7 +4,7 @@ import Cookiess from 'cookies';
 import { BlogFeed } from '../components/pagecomponents/Blogfeed'
 import Router from 'next/router';
 
-const blogFeed = ({ blogs, sessionData }) => {
+const BlogFeed = ({ blogs, sessionData }) => {
 
 
     axios.defaults.withCredentials = true
@@ -27,7 +27,7 @@ const blogFeed = ({ blogs, sessionData }) => {
 
 
 
-export default blogFeed
+export default BlogFeed
 
 export async function getServerSideProps({ req, res }) {
     // Fetch data from external API
