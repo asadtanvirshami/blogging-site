@@ -3,8 +3,11 @@ import Cookiess from 'cookies'
 import axios from 'axios'
 import ApprovalsPage from '../components/pagecomponents/ApprovalsPage'
 
-export const Approvals = ({ sessionData }) => {
 
+
+
+// eslint-disable-next-line react/display-name
+export const Approvals = ({ sessionData }) => {
     useEffect(() => {
 
         if (sessionData.auth != true || sessionData.role != 'admin') {

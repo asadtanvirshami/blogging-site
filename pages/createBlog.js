@@ -8,6 +8,7 @@ import dynamic from 'next/dynamic';
 import 'react-quill/dist/quill.snow.css';
 
 
+// eslint-disable-next-line react/display-name
 const Editor = dynamic(() =>
     import('../components/reusablecomponents/Editor/QuillEditor.js'), { ssr: false }
 )
