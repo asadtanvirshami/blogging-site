@@ -1,7 +1,7 @@
 import React, { useState, useEffect, Fragment } from 'react'
 import axios from 'axios'
 import Cookiess from 'cookies';
-import { BlogFeed } from '../components/pagecomponents/Blogfeed'
+import {BlogFeedPage} from '../components/pagecomponents/BlogFeedPage'
 import Router from 'next/router';
 
 const BlogFeed = ({ blogs, sessionData }) => {
@@ -19,7 +19,7 @@ const BlogFeed = ({ blogs, sessionData }) => {
     return (
         // <Form.Text muted>{moment(bit.time).fromNow()}</Form.Text>
         <div>
-            <BlogFeed blogs={blogs} />
+            <BlogFeedPage blogs={blogs} />
         </div>
     )
 }
