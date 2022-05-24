@@ -1,50 +1,59 @@
-import React, {useEffect} from 'react'
+import React, { useState, useEffect, Fragment } from 'react'
 import axios from 'axios'
-import CooKies from 'js-cookie'
-import Router from 'next/router'
-import Cookies from 'cookies'
-import { IndexPage } from '../components/pagecomponents/IndexPage'
-
-
-const Index = ({ sessionData }) => {
-
-useEffect(() => {
-    if (sessionData.auth != true) {
-      Router.push('/login')
-    }
-  }, [])
+import Cookiess from 'cookies';
+import {BlogFeedPage} from '../components/pagecomponents/IndexPage'
+import Router from 'next/router';
 
 
 
-  return (
-    <div >
+// eslint-disable-next-line react/display-name
+const Index = ({ blogs, sessionData }) => {
 
-      <IndexPage/>
-    </div>
-  )
+
+    axios.defaults.withCredentials = true
+    const router = Router
+
+   useEffect(() => {
+        if (sessionData.auth != true) {
+            Router.push('/login')
+        }
+    }, [])
+
+    return (
+        // <Form.Text muted>{moment(bit.time).fromNow()}</Form.Text>
+        <div>
+            <BlogFeedPage blogs={blogs} />
+        </div>
+    )
 }
+
+
+
 
 export default Index
 
 export async function getServerSideProps({ req, res }) {
-  // Fetch data from external API
-  const cookies = new Cookies(req, res)
-  const value = await axios.get(process.env.NEXT_PUBLIC_FP_GET_JWT, {
-    headers: {
-      "x-access-token": `${cookies.get('token')}`,
-      "user": `${cookies.get('user')}`,
-      "role": `${cookies.get('isAdmin')}`
+    // Fetch data from external API
+
+    // Fetch data from external API
+    const cookies = new Cookiess(req, res)
+    const value = await axios.get(process.env.NEXT_PUBLIC_FP_GET_JWT, {
+        headers: {
+            "x-access-token": `${cookies.get('token')}`,
+            "user": `${cookies.get('user')}`,
+            "role": `${cookies.get('isAdmin')}`
+        }
+    }).then((x) => x.data);
+    console.log(value)
+    const sessionData = await value
+
+
+    const request = await axios.get(process.env.NEXT_PUBLIC_FP_GET_APPROVEDS)
+    const blogs = await request.data
+
+    // Pass data to the page via props
+    return {
+        props: { blogs: blogs, sessionData: sessionData }
     }
-  }).then((x) => x.data);
-  console.log(value)
-  const sessionData = await value
-
-  // Pass data to the page via props
-  return {
-    props: { sessionData: sessionData }
-  }
 }
-
-
-
 

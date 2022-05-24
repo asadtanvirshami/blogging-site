@@ -36,14 +36,13 @@ export const Header = () => {
     ) : (
         <div>
         
-            <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark" >
+            <Navbar collapseOnSelect expand="lg" className='navbar-main'  >
                 <Container>
                     <Navbar.Brand href="#home" className="logo-name">BlogNow.</Navbar.Brand>
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse id="responsive-navbar-nav">
                         <Nav className="me-auto ">
                             <Nav.Link className="main-nav-links" href="/">Home</Nav.Link>
-                            <Nav.Link className="main-nav-links" href="/blogfeed">Blog Feed</Nav.Link>
                             <Nav.Link className="main-nav-links" href="/createBlog">Create Blog</Nav.Link>
                             <Nav.Link className="main-nav-links" href="/yourBlogs">Your Blogs </Nav.Link>
                             <Nav.Link className="main-nav-links" href="/contact">Contact Us</Nav.Link>

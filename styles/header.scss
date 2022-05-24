@@ -1,6 +1,6 @@
 
 .navbar-main{
-background-color: black !important;
+background-color: #FC5C65 !important;
 }
 
 .logo-name{
@@ -12,16 +12,12 @@ background-color: black !important;
 .main-nav-links{
     color: white!important;
     font-size: 17px;
-    border-radius: 100px;
     border:solid transparent 0.1px;
     cursor: pointer !important ;
 }
 
 .main-nav-links:hover{
-    border-radius: 100px;
-    background-color: white;
-    color: black !important;
-    border: solid white 0.1px;
+    border-bottom: solid 1px white;
     font-size: 17px;
     cursor: pointer !important;
     transition-duration: 800ms;
