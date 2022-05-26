@@ -8,6 +8,7 @@ import Cookies from 'js-cookie';
 
 
 export const Editor = ({ blog }, props) => {
+
   const [Blog, setBlog] = useState('')
   const [titleLog, setTitle] = useState("");
   const [lastLog, setLast] = useState("");
@@ -15,7 +16,7 @@ export const Editor = ({ blog }, props) => {
   const [detail, setDetail] = useState([]);
   const [name, setName] = useState("")
   const [category, setCategory] = useState("")
-
+  const [selectedImage, setSelectedImage]=useState("")
 
   useEffect(() => {
     function getData() {
@@ -74,6 +75,20 @@ export const Editor = ({ blog }, props) => {
 
 
 
+  const onFileSelected = (files)=>{
+  const formData = new FormData()
+  formData.append("file", selectedImage)
+  formData.append("upload_preset", "coverPics" )
+  
+
+  axios.post(
+  "https://api.cloudinary.com/v1_1/dwuzocatf/image/upload",formData
+  ).then((res)=>{
+    console.log(res.data.url)
+  })
+}
+
+
   useEffect(() => {
 
 
@@ -92,6 +107,9 @@ export const Editor = ({ blog }, props) => {
   }, [])
   console.log[detail]
 
+
+
+  
   useEffect(() => {
     let res = axios.get(process.env.NEXT_PUBLIC_FP_GET_USERS,
       {
@@ -138,6 +156,8 @@ export const Editor = ({ blog }, props) => {
       <div className="container mt-5 form-bg">
         <Form>
           <Form.Group as={Col} md="4" controlId="validationCustomUsername" >
+          <input type="file" onChange={(event)=>{setSelectedImage(event.target.files[0])}}/>
+          <button onClick={onFileSelected}>Upload</button>
             <InputGroup hasValidation className="input-div">
               <InputGroup.Text id="inputGroupPrepend" className="blog-input" >Blog Title</InputGroup.Text>
               <Form.Control
