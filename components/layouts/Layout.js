@@ -19,6 +19,7 @@ const Layout = ({ children, sessionData }) => {
     return (
       <>
         <>{children}</>
+        <Footer/>
       </>
 
 
@@ -27,6 +28,7 @@ const Layout = ({ children, sessionData }) => {
     return (
       <>
         <>{children}</>
+        <Footer/>
       </>
     )
 

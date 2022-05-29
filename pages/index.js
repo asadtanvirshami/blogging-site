@@ -21,7 +21,7 @@ const Index = ({ blogs, sessionData }) => {
 
     return (
         // <Form.Text muted>{moment(bit.time).fromNow()}</Form.Text>
-        <div>
+        <div className='index-bg'>
             <BlogFeedPage blogs={blogs} />
         </div>
     )

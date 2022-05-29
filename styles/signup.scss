@@ -1,0 +1,24 @@
+.sign-form{
+    border: solid white 1px;
+    border-radius: 20px;
+    color: gray;
+    box-shadow:  2px 2px 15px gray !important; 
+}
+
+.contact-label-heading{
+    color: #FC5C65 !important;
+}
+
+.signup-button{
+    background-color:#FC5C65 !important ;
+    border-color: #FC5C65 !important;
+    border-radius: 20px !important;
+}
+
+.form-control:focus{
+
+    outline: none !important;
+    outline-offset: none !important;
+    box-shadow: none !important;
+    border-color: #FC5C65 !important;
+}

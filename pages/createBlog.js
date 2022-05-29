@@ -17,8 +17,6 @@ export const CreateBlogger = ({ sessionData }, props) => {
 
 
 
-
-
     useEffect(() => {
         if (sessionData.auth != true) {
             Router.push('/login')
@@ -30,12 +28,11 @@ export const CreateBlogger = ({ sessionData }, props) => {
     return (
 
 
-        <div className="container mt-5 form-bg">
+        <div className=" container mt-5 form-bg">
 
             <h1 className=" name-label text-center">Create Blog</h1>
             <div className="col-md-12 pb-4 " style={{ height: 300 }} >
                 <Editor blog={content} />
-
             </div>
         </div >
     )

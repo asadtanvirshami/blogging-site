@@ -1,16 +1,62 @@
 .login-form{
-    background-color: transparent;
     border: solid white 1px;
-    border-radius: 30px;
-    color: white;
+    border-radius: 20px;
+    color: gray;
+    box-shadow:  2px 2px 15px gray !important; 
+
 }
 
 .createacc-btn{
-    background-color: transparent !important;
+    font-size: 15px !important;
+    background-color: #FC5C65 !important;
+    color: white !important;
     border: white solid 1px !important;
+    border-radius: 20px !important;
 }
 
 .login-btn {
-    background-color: transparent !important;
+    
+    font-size: 15px !important;
+    background-color: #FC5C65 !important;
+    color: white !important;
     border: white solid 1px !important;
+    border-radius:20px !important;
+}
+
+.login-lables {
+    color: gray;
+    font-size: 15px;
+    font-weight: 470 !important;
+
+}
+
+.login-lables-heading{
+    color: #FC5C65;
+}
+
+.checkbox{
+
+    color: gray !important;
+    
+    
+}
+
+.txt-heading{
+    font-size: 45px!important;
+    background: linear-gradient(to right, black 61%, #FC5C65 50%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.form-space{
+    border-radius: 20px !important;
+}
+
+.form-control:focus{
+
+    outline: none !important;
+    outline-offset: none !important;
+    box-shadow: none !important;
+    border-color: #FC5C65 !important;
 }

@@ -17,21 +17,10 @@ export const Editor = ({ blog }, props) => {
   const [name, setName] = useState("")
   const [category, setCategory] = useState("")
   const [selectedImage, setSelectedImage]=useState("")
+  const [cover, setCover]=useState("")
+  
 
-  useEffect(() => {
-    function getData() {
-      setBlog(props.blog)
-    }
-    getData();
-    return () => setBlog('')
-  }, [props.blog])
-
-  useEffect(() => setName(Cookies.get('user')), []); console.log(name)
-
-  const onChange = value => {
-    setBlog(value);
-  };
-
+  // Quill Editor setting
 
   const modules = {
     toolbar: [
@@ -74,6 +63,23 @@ export const Editor = ({ blog }, props) => {
   ]
 
 
+// api calls
+
+  useEffect(() => {
+    function getData() {
+      setBlog(props.blog)
+    }
+    getData();
+    return () => setBlog('')
+  }, [props.blog])
+
+  useEffect(() => setName(Cookies.get('user')), []); console.log(name)
+
+  const onChange = value => {
+    setBlog(value);
+  };
+
+
 
   const onFileSelected = (files)=>{
   const formData = new FormData()
@@ -85,6 +91,7 @@ export const Editor = ({ blog }, props) => {
   "https://api.cloudinary.com/v1_1/dwuzocatf/image/upload",formData
   ).then((res)=>{
     console.log(res.data.url)
+    setCover(res.data.url)
   })
 }
 
@@ -141,7 +148,8 @@ export const Editor = ({ blog }, props) => {
         content: Blog,
         userLog: name,
         Category: category,
-        pfp: detail
+        pfp: detail,
+        cover:cover
 
       }).then((res) => {
         console.log(res.data)

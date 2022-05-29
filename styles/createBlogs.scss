@@ -1,34 +1,36 @@
+.form-bg{
+    height: 800px;
+}
+
 .blog-input{
 background-color:transparent !important;
-color: white !important;
+color: gray !important;
 }
 
 .name-label{
-    color: white!important;
+    color: gray!important;
 font-family: Arial, Helvetica, sans-serif;
 font-weight: 540;
 }
 
 .form-btn{
-    background-color: transparent !important ;
-    border-color: white !important;
+    border-color: gray !important;
 }
 
 .editor:active{
     border: none !important;
-    color: white;
+    color: gray;
     
 }
 
 .title-holder{
-    background-color: rgb(0, 0, 0) !important;
-    background: transparent !important;
-    color: white !important;
+    
+   
 }
 
     
 .ql-toolbar.ql-snow{
-    background-color: white;
+    background-color: gray;
 }
 
 .ql-editor{
@@ -37,11 +39,11 @@ font-weight: 540;
 
 .title-holder:focus {
     outline: none !important;
-    box-shadow: 0 0 10px #719ECE !important;
+    box-shadow: 0 0 10px gray !important;
   }
   
   .quill > .ql-container > .ql-editor.ql-blank::before{
 
-    color: lightgray !important;
+    color: gray !important;
 } 
     
