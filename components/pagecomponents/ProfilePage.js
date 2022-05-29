@@ -4,18 +4,19 @@ import Cookies from 'js-cookie';
 import axios from 'axios';
 
 
-export const ProfilePage = () => {
+export const ProfilePage = ({user}) => {
 
     const { Upload } = require("upload-js");
     const upload = new Upload({ apiKey: "free" });
-    const [username, setusername] = React.useState("");
+    const [username, setusername] = useState("");
     const [bioReg, setBioReg] = useState("")
     const [eduReg, setEduReg] = useState("")
     const [userReg, setUserReg] = useState("")
-    const [detail, setDetail] = useState([])
+    const [CountryReg, setCountry] = useState("");
+    const [CityReg, setCity] = useState("");
     const [name, setname] = useState("")
+    const [detail, setDetail] = useState([])
 
-    useEffect(() => setname(Cookies.get('user')), [])
 
 
 
@@ -83,12 +84,18 @@ export const ProfilePage = () => {
         const res = axios.post(process.env.NEXT_PUBLIC_FP_UPDATE_USERSINFO, {
 
             username: `${Cookies.get('user')}`,
-            updateuser: userReg,
-            updatebio: bioReg,
-            updateedu: eduReg,
-        }).then((x) => {
-            console.log(x.data)
-        })
+            update_user: userReg,
+            update_bio: bioReg,
+            update_edu: eduReg,
+            update_city:CityReg,
+            update_country:CountryReg
+
+        }) .then((x) => {
+            console.log(x.status);
+            Cookies.set("user", userReg);
+            
+        });
+
     }
 
 
@@ -125,23 +132,13 @@ export const ProfilePage = () => {
         <div>
             <Modal show={show} onHide={handleClose}>
                 <Modal.Header closeButton>
-                    <Modal.Title>Modal heading</Modal.Title>
+                    <Modal.Title>Setting</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
                     <Form >
 
-                        <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-                            <Form.Label>education</Form.Label>
-                            <Form.Control
-                                type="text"
-                                placeholder="edu"
-                                autoFocus
-                                onChange={(e) => { setEduReg(e.target.value) }}
-                            />
-                        </Form.Group>
-
-                        <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-                            <Form.Label>username</Form.Label>
+                    <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+                            <Form.Label>Username</Form.Label>
                             <Form.Control
                                 type="text"
                                 placeholder="edu"
@@ -154,9 +151,43 @@ export const ProfilePage = () => {
                             className="mb-3"
                             controlId="exampleForm.ControlTextarea1"
                         >
-                            <Form.Label>bio</Form.Label>
+                            <Form.Label>Bio</Form.Label>
                             <Form.Control as="textarea" rows={3} onChange={(e) => { setBioReg(e.target.value) }} />
                         </Form.Group>
+
+                        <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+                            <Form.Label>Education</Form.Label>
+                            <Form.Control
+                                type="text"
+                                placeholder="edu"
+                                autoFocus
+                                onChange={(e) => { setEduReg(e.target.value) }}
+                            />
+                        </Form.Group>
+                        
+                        <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+                            <Form.Label>Country</Form.Label>
+                            <Form.Control
+                                type="text"
+                                placeholder="edu"
+                                autoFocus
+                                onChange={(e) => { setCountry(e.target.value) }}
+                            />
+                        </Form.Group>
+
+                        
+                        <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+                            <Form.Label>City</Form.Label>
+                            <Form.Control
+                                type="text"
+                                placeholder="edu"
+                                autoFocus
+                                onChange={(e) => { setCity(e.target.value) }}
+                            />
+                        </Form.Group>
+
+
+                   
                     </Form>
 
                 </Modal.Body>

@@ -11,7 +11,7 @@ export const BlogFeedPage = ({ blogs }) => {
 
   useEffect(() => {
     setBlogList(blogs);
-    console.log(blogs[0].blogcover)
+
   }, [bogList]);
 
   const likeLog = async (id, i) => {

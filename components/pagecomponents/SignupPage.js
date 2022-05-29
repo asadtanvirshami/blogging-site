@@ -17,8 +17,6 @@ export const SignupPage = () => {
   const [FirstReg, setFirst] = useState("");
   const [LastReg, setLast] = useState("");
   const [passwordReg, setPassword] = useState("");
-  const [CountryReg, setCountry] = useState("");
-  const [CityReg, setCity] = useState("");
   const [Cpassword, setCPassword] = useState("");
 
   // sending post req to backend
