@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import Image from "next/Image";
 import { Form, Col } from "react-bootstrap";
 import parse, { domToReact, htmlToDOM, Element } from "html-react-parser";
 import moment from "moment";
@@ -45,7 +44,6 @@ export const BlogFeedPage = ({ blogs }) => {
       {bogList.map((bg, index) => {
         return (
           <div key={index} className="my-5">
-            {/* <Image src={} width={250} height={250}/> */}
             <div className="blogs-div container col-md-7 mx-auto p-4 justify-content-center" key={index}>
               <img  src={bg.pfpUser} width={50} height={50}/><h3>{bg.postedBy}</h3>
               <img  src={bg.blogcover} height={100} /><h3>{bg.postedBy}</h3>
