@@ -114,8 +114,6 @@ export const Editor = ({ blog }, props) => {
   }, [])
   console.log[detail]
 
-
-
   
   useEffect(() => {
     let res = axios.get(process.env.NEXT_PUBLIC_FP_GET_USERS,
