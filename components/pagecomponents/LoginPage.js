@@ -16,7 +16,7 @@ export const LoginPage = () => {
 
   const Login = (e) => {
     e.preventDefault();
- axios
+    axios
       .post(process.env.NEXT_PUBLIC_FP_POST_AUTH, {
         username: userLog,
         password: passwordLog,
@@ -26,7 +26,6 @@ export const LoginPage = () => {
         if (!res.data.auth) {
           setLoginStatus(res.data.message);
           setLoggedIn(false);
-          console.log("noneeee");
         } else {
           CooKies.set("token", res.data.accessToken);
           CooKies.set("user", res.data.username);

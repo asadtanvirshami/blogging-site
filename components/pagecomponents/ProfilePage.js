@@ -4,7 +4,9 @@ import Cookies from "js-cookie";
 import axios from "axios";
 
 export const ProfilePage = ({ user }) => {
-  const [username, setusername] = useState("");
+
+
+
   const [bioReg, setBioReg] = useState("");
   const [eduReg, setEduReg] = useState("");
   const [userReg, setUserReg] = useState("");
@@ -32,41 +34,30 @@ export const ProfilePage = ({ user }) => {
   const handleShow = () => setShow(true);
   const [show, setShow] = useState(false);
 
-  const onFileSelected  =  async  (event, files) => {
+  const onFileSelected = async (event, files) => {
     event.preventDefault();
     const formData = new FormData();
     formData.append("file", selectedImage);
     formData.append("upload_preset", "coverPics");
 
-   await fetch("https://api.cloudinary.com/v1_1/dwuzocatf/image/upload", {
+    await fetch("https://api.cloudinary.com/v1_1/dwuzocatf/image/upload", {
       method: "post",
       body: formData,
     })
       .then((resp) => resp.json())
       .then((data) => {
-        
         console.log(data.url);
- 
- 
-    axios
-    .post(process.env.NEXT_PUBLIC_FP_UPDATE_PFP, {
-      username: `${Cookies.get("user")}`,
-      pfp:data.url ,
-    });
-  
 
-
-   axios.post(
-        process.env.NEXT_PUBLIC_FP_UPDATE_PFP_BLOG,
-        {
+        axios.post(process.env.NEXT_PUBLIC_FP_UPDATE_PFP, {
           username: `${Cookies.get("user")}`,
           pfp: data.url,
         });
-      
 
-      })
-
-  
+        axios.post(process.env.NEXT_PUBLIC_FP_UPDATE_PFP_BLOG, {
+          username: `${Cookies.get("user")}`,
+          pfp: data.url,
+        });
+      });
   };
 
   const update = (e) => {

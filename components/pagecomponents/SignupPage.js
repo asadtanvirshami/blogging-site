@@ -23,7 +23,7 @@ export const SignupPage = () => {
 
   const register = (e) => {
     e.preventDefault();
-     axios
+    axios
       .post(process.env.NEXT_PUBLIC_FP_POST_USER, {
         FirstName: FirstReg,
         LastName: LastReg,
@@ -70,7 +70,9 @@ export const SignupPage = () => {
     <div>
       <div className=" mt-5 container">
         {/* form div */}
-        <h1 className='txt-heading text-center  mt-5'>Signup up for BlogNow!</h1>
+        <h1 className="txt-heading text-center  mt-5">
+          Signup up for BlogNow!
+        </h1>
         <div className=" col-md-12  d-flex justify-content-center    ">
           <Form
             onSubmit={register}
@@ -79,7 +81,12 @@ export const SignupPage = () => {
             <h1 className="contact-label-heading text-center mb-4 ">Sign up</h1>
 
             <Row className="mb-3">
-              <Form.Group className="mb-2" as={Col} md="4" controlId="validationCustom01">
+              <Form.Group
+                className="mb-2"
+                as={Col}
+                md="4"
+                controlId="validationCustom01"
+              >
                 <Form.Label>First name</Form.Label>
                 <Form.Control
                   required
@@ -87,12 +94,17 @@ export const SignupPage = () => {
                   placeholder="First name"
                   onChange={(e) => {
                     setFirst(e.target.value);
-                }}
-                className="form-space"
+                  }}
+                  className="form-space"
                 />
                 <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
               </Form.Group>
-              <Form.Group className="mb-2" as={Col} md="4" controlId="validationCustom02">
+              <Form.Group
+                className="mb-2"
+                as={Col}
+                md="4"
+                controlId="validationCustom02"
+              >
                 <Form.Label>Last name</Form.Label>
                 <Form.Control
                   required
@@ -105,7 +117,7 @@ export const SignupPage = () => {
                 />
                 <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
               </Form.Group>
-              <Form.Group as={Col} md="4"  controlId="validationCustomUsername">
+              <Form.Group as={Col} md="4" controlId="validationCustomUsername">
                 <Form.Label>Username</Form.Label>
                 <InputGroup hasValidation>
                   <Form.Control
@@ -114,9 +126,9 @@ export const SignupPage = () => {
                     aria-describedby="inputGroupPrepend"
                     required
                     onChange={(e) => {
-                        setUsername(e.target.value);
-                      }}
-                      className="form-space"
+                      setUsername(e.target.value);
+                    }}
+                    className="form-space"
                   />
                   <Form.Control.Feedback type="invalid">
                     Please choose a username.
@@ -125,33 +137,65 @@ export const SignupPage = () => {
               </Form.Group>
             </Row>
             <Row className="mb-3">
-              <Form.Group as={Col} className="mb-2" md="4" controlId="validationCustom03">
+              <Form.Group
+                as={Col}
+                className="mb-2"
+                md="4"
+                controlId="validationCustom03"
+              >
                 <Form.Label>Email</Form.Label>
-                <Form.Control type="text" placeholder="xyz@gmail.com" required   className="form-space" onChange={(e) => {
-                  setEmail(e.target.value);
-                }}/>
-                
+                <Form.Control
+                  type="text"
+                  placeholder="xyz@gmail.com"
+                  required
+                  className="form-space"
+                  onChange={(e) => {
+                    setEmail(e.target.value);
+                  }}
+                />
               </Form.Group>
-              <Form.Group className="mb-2" as={Col} md="4" controlId="validationCustom04">
+              <Form.Group
+                className="mb-2"
+                as={Col}
+                md="4"
+                controlId="validationCustom04"
+              >
                 <Form.Label>Passsword</Form.Label>
-                <Form.Control type="text" placeholder="Password"  onChange={(e) => {
-                  setPassword(e.target.value);
-                }} required   className="form-space"/>
+                <Form.Control
+                  type="text"
+                  placeholder="Password"
+                  onChange={(e) => {
+                    setPassword(e.target.value);
+                  }}
+                  required
+                  className="form-space"
+                />
                 <Form.Control.Feedback type="invalid">
                   Please provide a valid state.
                 </Form.Control.Feedback>
               </Form.Group>
-              <Form.Group as={Col} md="4" className="mt-2" controlId="validationCustom05">
+              <Form.Group
+                as={Col}
+                md="4"
+                className="mt-2"
+                controlId="validationCustom05"
+              >
                 <Form.Label>Confirm Password</Form.Label>
-                <Form.Control type="text" placeholder="Confirm Password"  onChange={(e) => {
-                  setCPassword(e.target.value);
-                }} required  className="form-space" />
+                <Form.Control
+                  type="text"
+                  placeholder="Confirm Password"
+                  onChange={(e) => {
+                    setCPassword(e.target.value);
+                  }}
+                  required
+                  className="form-space"
+                />
                 <Form.Control.Feedback type="invalid">
                   Please provide a valid zip.
                 </Form.Control.Feedback>
               </Form.Group>
             </Row>
-           
+
             <div className="col-md-6">
               <Button
                 variant="primary"
@@ -162,8 +206,8 @@ export const SignupPage = () => {
               </Button>
             </div>
             <Form.Text className="">
-                We'll never share your email with anyone else.
-              </Form.Text>
+              We'll never share your email with anyone else.
+            </Form.Text>
           </Form>
         </div>
       </div>
