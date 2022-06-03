@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { Form, Col, Button } from "react-bootstrap";
+import { Form, Col, Button,Image } from "react-bootstrap";
 import parse, { domToReact, htmlToDOM, Element } from "html-react-parser";
 import moment from "moment";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faHeart } from '@fortawesome/free-solid-svg-icons'
-import banner from '../../images/headban.png'
 
 export const BlogFeedPage = ({ blogs }) => {
   const [bogList, setBlogList] = useState([]);
@@ -69,7 +68,7 @@ export const BlogFeedPage = ({ blogs }) => {
                   </div>
 
                   <div className="col-md-6">
-                    <img src={banner} width={50} height={50}/>
+                  
                   </div>
 
                 </div>
