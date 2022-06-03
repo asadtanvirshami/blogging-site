@@ -21,9 +21,9 @@ export const SignupPage = () => {
 
   // sending post req to backend
 
-  const register = async (e) => {
+  const register = (e) => {
     e.preventDefault();
-    await axios
+     axios
       .post(process.env.NEXT_PUBLIC_FP_POST_USER, {
         FirstName: FirstReg,
         LastName: LastReg,
