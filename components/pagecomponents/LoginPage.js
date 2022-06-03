@@ -14,9 +14,9 @@ export const LoginPage = () => {
   const [isLoggedIn, setLoggedIn] = useState("");
   // sending post req to backend
 
-  const Login = async (e) => {
+  const Login = (e) => {
     e.preventDefault();
-    const res = await axios
+ axios
       .post(process.env.NEXT_PUBLIC_FP_POST_AUTH, {
         username: userLog,
         password: passwordLog,
