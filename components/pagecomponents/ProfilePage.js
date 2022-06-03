@@ -10,10 +10,9 @@ export const ProfilePage = ({ user }) => {
   const [userReg, setUserReg] = useState("");
   const [CountryReg, setCountry] = useState("");
   const [CityReg, setCity] = useState("");
-  const [name, setname] = useState("");
+  const [name, setName] = useState("");
   const [detail, setDetail] = useState([]);
   const [selectedImage, setSelectedImage] = useState("");
-  const [cover, setCover] = useState("");
 
   const [type, setType] = useState([]);
   useEffect(() => {
@@ -33,49 +32,39 @@ export const ProfilePage = ({ user }) => {
   const handleShow = () => setShow(true);
   const [show, setShow] = useState(false);
 
-  const onFileSelected = (event, files) => {
+  const onFileSelected  =  async  (event, files) => {
     event.preventDefault();
     const formData = new FormData();
     formData.append("file", selectedImage);
     formData.append("upload_preset", "coverPics");
 
-    fetch(`https://api.cloudinary.com/v1_1/dwuzocatf/image/upload`, {
+   await fetch("https://api.cloudinary.com/v1_1/dwuzocatf/image/upload", {
       method: "post",
       body: formData,
     })
       .then((resp) => resp.json())
       .then((data) => {
-        setCover(data.url);
+        
         console.log(data.url);
-        if(data.url){
-            axios
-            .post(process.env.NEXT_PUBLIC_FP_UPDATE_PFP, {
-              username: `${Cookies.get("user")}`,
-              pfp:`${cover}` ,
-            })
-            .then((x) => {
-              console.log("uploaded!");
-            });
+ 
+ 
+    axios
+    .post(process.env.NEXT_PUBLIC_FP_UPDATE_PFP, {
+      username: `${Cookies.get("user")}`,
+      pfp:data.url ,
+    });
+  
 
 
-            axios.post(
-                process.env.NEXT_PUBLIC_FP_UPDATE_PFP_BLOG,
-          
-                {
-                  username: `${Cookies.get("user")}`,
-                  pfp: `${cover}`,
-                })
-                .then((x) => {
-                  console.log("uploaded!");
-                });
+   axios.post(
+        process.env.NEXT_PUBLIC_FP_UPDATE_PFP_BLOG,
+        {
+          username: `${Cookies.get("user")}`,
+          pfp: data.url,
+        });
+      
 
-        }
-    
-    })
-      .catch((err) => console.log(err));
-
-    
-
+      })
 
   
   };
