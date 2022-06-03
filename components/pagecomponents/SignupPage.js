@@ -31,8 +31,6 @@ export const SignupPage = () => {
         password: passwordReg,
         cpassword: Cpassword,
         username: usernameReg,
-        city: CityReg,
-        country: CountryReg,
       })
       .then((x) => {
         if (x.data.message === "Welcome User") {

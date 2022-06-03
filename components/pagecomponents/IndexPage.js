@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { Form, Col } from "react-bootstrap";
+import { Form, Col, Button } from "react-bootstrap";
 import parse, { domToReact, htmlToDOM, Element } from "html-react-parser";
 import moment from "moment";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faHeart } from '@fortawesome/free-solid-svg-icons'
+import banner from '../../images/headban.png'
 
 export const BlogFeedPage = ({ blogs }) => {
   const [bogList, setBlogList] = useState([]);
@@ -41,6 +42,47 @@ export const BlogFeedPage = ({ blogs }) => {
 
   return (
     <div>
+  <div className="container main-top ">
+          <div className="container main-top ">
+
+            <div className="row" >
+
+              <div className="container main-top mt-5">
+
+                <div className="row " >
+
+                  <div className="col-md-6 ban-div pt-5 ">
+                    <h1 className="ban-h mb-4 ">
+                      Welcome to BlogNow.
+                    </h1>
+
+                    <p className="ban-txt ">
+                      Lorem ipsum dolor sit amet consectetur adipisicing elit. Non explicabo nihil exercitationem minima mollitia autem et ducimus laborum eius tenetur optio est, sit, quasi excepturi rem necessitatibus inventore aliquam saepe.
+                      Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam, reiciendis. Maxime eligendi asperiores distinctio mollitia. Distinctio beatae veniam atque? Aliquam provident voluptatem minus, unde atque sint rem quasi ipsa labore?
+                    </p>
+
+                    <Button href="/contact" className="ban-btn col-md-3" >
+
+                      Contact Us
+
+                    </Button>
+                  </div>
+
+                  <div className="col-md-6">
+                    <img src={banner} width={50} height={50}/>
+                  </div>
+
+                </div>
+              </div>
+
+
+            </div>
+
+
+          </div>
+
+        </div>
+
       {bogList.map((bg, index) => {
         return (
           <div key={index} className="my-5">
