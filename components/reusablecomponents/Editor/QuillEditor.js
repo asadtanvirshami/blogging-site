@@ -75,6 +75,7 @@ export const Editor = ({ blog }, props) => {
   };
 
   const onFileSelected = (files) => {
+    event.preventDefault();
     const formData = new FormData();
     formData.append("file", selectedImage);
     formData.append("upload_preset", "coverPics");
@@ -176,7 +177,6 @@ export const Editor = ({ blog }, props) => {
               >
                 <option>Technology</option>
                 <option>Gaming</option>
-                <option>Education</option>
                 <option>Sports</option>
                 <option>Health</option>
                 <option>Photography</option>

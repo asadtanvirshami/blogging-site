@@ -7,11 +7,6 @@ import ContactPage from '../components/pagecomponents/ContactPage'
 // eslint-disable-next-line react/display-name
 export const Contact = ({sessionData}) => {
 
-    React.useEffect(() => {
-        if(sessionData.auth != true){
-          Router.push('/login')
-        }
-      }, [])
     
     return (
         <div>

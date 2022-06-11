@@ -8,19 +8,19 @@
 
 .createacc-btn{
     font-size: 15px !important;
-    background-color: #FC5C65 !important;
+    background-color:  rgb(35, 220, 245) !important;
     color: white !important;
     border: white solid 1px !important;
-    border-radius: 20px !important;
+  
 }
 
 .login-btn {
     
     font-size: 15px !important;
-    background-color: #FC5C65 !important;
+    background-color: rgb(35, 220, 245)!important;
     color: white !important;
     border: white solid 1px !important;
-    border-radius:20px !important;
+
 }
 
 .login-lables {
@@ -31,19 +31,17 @@
 }
 
 .login-lables-heading{
-    color: #FC5C65;
+    color:  rgb(35, 220, 245)
 }
 
 .checkbox{
 
     color: gray !important;
-    
-    
 }
 
 .txt-heading{
     font-size: 45px!important;
-    background: linear-gradient(to right, black 61%, #FC5C65 50%);
+    background: linear-gradient(to right, black 61%,  rgb(35, 220, 245) 50%);
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -58,5 +56,5 @@
     outline: none !important;
     outline-offset: none !important;
     box-shadow: none !important;
-    border-color: #FC5C65 !important;
+    border-color:  rgb(35, 220, 245) !important;
 }

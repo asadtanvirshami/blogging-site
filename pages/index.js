@@ -5,7 +5,6 @@ import {BlogFeedPage} from '../components/pagecomponents/IndexPage'
 import Router from 'next/router';
 
 
-
 // eslint-disable-next-line react/display-name
 const Index = ({ blogs, sessionData }) => {
 
@@ -13,11 +12,7 @@ const Index = ({ blogs, sessionData }) => {
     axios.defaults.withCredentials = true
     const router = Router
 
-   useEffect(() => {
-        if (sessionData.auth != true) {
-            Router.push('/login')
-        }
-    }, [])
+  
 
     return (
         // <Form.Text muted>{moment(bit.time).fromNow()}</Form.Text>

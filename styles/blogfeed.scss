@@ -1,12 +1,38 @@
-.feed-div{
-    color:  white !important;
+.feed-div {
+    color: white !important;
 }
 
-.liked{
+.liked {
     color: rgb(223, 217, 217) !important;
 }
 
-.likes-count{
+.likes-count {
     color: black;
     font-size: 12px;
+}
+
+.category-div {
+    float: right !important;
+}
+
+.blog-img {
+    height: 55vh;
+}
+
+.blog-img-2 {
+    border-radius: 200px;
+}
+
+
+.recent-col {
+    margin-right: 192px;
+}
+
+.txt-recent{
+    color: gray;
+}
+
+.blog-main-page{
+    display: flex; 
+
 }

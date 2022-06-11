@@ -1,5 +1,82 @@
 .blogs-div{
     border: solid white 1px;
-    border-radius: 20px;
+   background-color: azure;
     box-shadow:  2px 2px 15px gray !important; 
+    margin-bottom:0% ;
+}
+
+.ban-btn{
+    
+    font-size: 15px !important;
+    background-color:  rgb(1, 1, 189)!important;
+    color: white !important;
+    border: white solid 1px !important;
+  
+}
+
+.ban-btn:hover{
+    
+    font-size: 15px !important;
+    background-color: azure!important;
+    color: rgb(1, 1, 189)!important;
+    border:  rgb(1, 1, 189)solid 1px !important;
+   
+}
+
+.ban-txt {
+    
+    font-weight: 500;
+    font-style: italic ;
+
+}
+
+
+.form-control:focus{
+
+    outline: none !important;
+    outline-offset: none !important;
+    box-shadow: none !important;
+    border-color:   rgb(1, 1, 189)!important;
+}
+
+.main-top{
+    background-color: azure;
+    color: black;
+    box-shadow:  2px 2px 15px  !important; 
+
+}
+
+.ban-h{
+    color: rgb(35, 220, 245) !important;
+    background: linear-gradient(to right, black 19%,  rgb(1, 1, 189) 50%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 100px;
+}
+
+.ban-span{
+    color: black !important;
+    font-size: 70px;
+    font-weight: 600;
+}   
+
+@media only screen and (max-width: 768px) {
+    .ban-h{
+        color: rgb(35, 220, 245) !important;
+        background: linear-gradient(to right, black 19%,  rgb(35, 220, 245) 50%);
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        font-size: 60px;
+
+    }
+    
+    .ban-span{
+        color: black !important;
+        font-size: 41px;
+        font-weight: 600;
+    }
+    
+    
 }
