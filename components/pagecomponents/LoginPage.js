@@ -93,6 +93,9 @@ export const LoginPage = () => {
             >
               Create new account
             </Button>
+            <div className="col-md-12 text-center">
+              <a className="">Forget password?</a>
+            </div>
           </Form>
         </div>
       </div>

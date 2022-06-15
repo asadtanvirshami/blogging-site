@@ -16,11 +16,13 @@
 }
 
 .blog-img {
-    height: 55vh;
+    height: 28vh !important;
+    object-fit: cover !important  ;
 }
 
 .blog-img-2 {
     border-radius: 200px;
+
 }
 
 
@@ -28,11 +30,76 @@
     margin-right: 192px;
 }
 
-.txt-recent{
+.txt-recent {
     color: gray;
 }
 
-.blog-main-page{
-    display: flex; 
+
+
+.cards {
+    box-shadow: 2px 2px 15px gray !important;
+    overflow: hidden !important;
+    display: flex !important    ;
+    flex-direction: column !important;
+    justify-content: space-around !important;
+}
+
+.wrapper{
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr) !important;
+    grid-gap: 3rem;
+}
+
+  
+
+
+@media only screen and (max-width: 768px) {
+    .main-card-div {
+       padding-top: 7%;
+       padding-left: 0%;
+       padding-right: 0%;
+    }
+    
+    .wrapper{
+        display: grid !important;
+        grid-template-columns: repeat(2, 1fr) !important;
+        grid-gap: 3rem;
+    }
+    
+
 
 }
+@media only screen and (max-width: 600px) {
+    .wrapper{
+        display: grid !important;
+        grid-template-columns: repeat(1, 1fr) !important;
+        grid-gap: 3rem;
+    }
+    
+
+    .cards {
+        width: 18rem !important;
+    }
+
+
+    @media only screen and (max-width: 320px) {
+    .blog-main-page {
+        columns: auto !important;
+        margin: auto !important;
+        padding: 2%;
+    }
+        .cards {
+            width: 14rem !important;
+        }
+    }
+}
+
+.liked{
+    color: red !important;
+}
+
+.like{
+    color: rgb(209, 209, 209)!important;
+}
+
+.main-recent-div{}

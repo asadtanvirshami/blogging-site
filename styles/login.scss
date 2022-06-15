@@ -1,6 +1,6 @@
 .login-form{
     border: solid white 1px;
-    border-radius: 20px;
+
     color: gray;
     box-shadow:  2px 2px 15px gray !important; 
 
@@ -8,7 +8,7 @@
 
 .createacc-btn{
     font-size: 15px !important;
-    background-color:  rgb(35, 220, 245) !important;
+    background-color:rgb(57, 112, 214) !important;
     color: white !important;
     border: white solid 1px !important;
   
@@ -17,7 +17,7 @@
 .login-btn {
     
     font-size: 15px !important;
-    background-color: rgb(35, 220, 245)!important;
+    background-color:rgb(57, 112, 214)!important;
     color: white !important;
     border: white solid 1px !important;
 
@@ -31,7 +31,7 @@
 }
 
 .login-lables-heading{
-    color:  rgb(35, 220, 245)
+    color:rgb(57, 112, 214)
 }
 
 .checkbox{
@@ -41,14 +41,13 @@
 
 .txt-heading{
     font-size: 45px!important;
-    background: linear-gradient(to right, black 61%,  rgb(35, 220, 245) 50%);
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
 .form-space{
-    border-radius: 20px !important;
+
 }
 
 .form-control:focus{
@@ -56,5 +55,5 @@
     outline: none !important;
     outline-offset: none !important;
     box-shadow: none !important;
-    border-color:  rgb(35, 220, 245) !important;
+    border-color:  rgb(57, 112, 214) !important;
 }
