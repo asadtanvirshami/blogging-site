@@ -8,18 +8,18 @@ import { faHeart } from "@fortawesome/free-solid-svg-icons";
 import Grid from "@material-ui/core/Grid";
 import Image from "next/image";
 
-export const Recent = ({ recentBlog }) => {
-  const [recent, setRecent] = useState([]);
+export const Tech = ({ techBlog }) => {
+  const [techBlogs, setTechBlogs] = useState([]);
 
   useEffect(() => {
-    setRecent(recentBlog);
-    console.log(recentBlog);
-  }, [recent]);
+    setTechBlogs(techBlog);
+    console.log(techBlog);
+  }, [techBlogs]);
 
   return (
     <div className=" mt-5 container   ">
       <div className=" ">
-        {recent.slice(0, 1).map((bg, index) => {
+        {techBlogs.map((bg, index) => {
           return (
             <div key={index} className="   ">
               <Card style={{ width: "20rem" }} className="cards ">

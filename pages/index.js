@@ -4,9 +4,10 @@ import Cookiess from "cookies";
 import { BlogFeedPage } from "../components/pagecomponents/homeLayout/IndexPage";
 import Router from "next/router";
 import { Recent } from "../components/pagecomponents/homeLayout/Recent";
+import { Tech } from "../components/pagecomponents/homeLayout/Tech";
 
 // eslint-disable-next-line react/display-name
-const Index = ({ blogs, recentBlog }) => {
+const Index = ({ blogs, recentBlog,techBlog }) => {
   axios.defaults.withCredentials = true;
   const router = Router;
 
@@ -18,8 +19,12 @@ const Index = ({ blogs, recentBlog }) => {
         <Recent recentBlog={recentBlog} />
       </div>
       <div className="">
+        <Tech techBlog={techBlog} />
+      </div>
+      <div className="">
         <BlogFeedPage blogs={blogs} />
       </div>
+      
     </div>
   );
 };
@@ -43,16 +48,23 @@ export async function getServerSideProps({ req, res }) {
   console.log(value);
   const sessionData = await value;
 
-  const request = await axios.get(process.env.NEXT_PUBLIC_FP_GET_APPROVEDS);
+  const request = await axios.get
+  (process.env.NEXT_PUBLIC_FP_GET_APPROVEDS);
+
   const requestRecent = await axios.get(
     process.env.NEXT_PUBLIC_FP_MOSTLIKE_BLOGS
   );
+  const requestTech = await axios.get(
+    process.env.NEXT_PUBLIC_FP_TECH_BLOGS
+  );
+
 
   const blogs = await request.data;
   const recentBlog = await requestRecent.data;
+  const techBlog = await requestTech.data;
 
   // Pass data to the page via props
   return {
-    props: { blogs: blogs, sessionData: sessionData, recentBlog: recentBlog },
+    props: { blogs: blogs, sessionData: sessionData, recentBlog: recentBlog, techBlog:techBlog },
   };
 }
