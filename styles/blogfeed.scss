@@ -17,13 +17,14 @@
 
 .blog-img {
     height: 28vh !important;
-    object-fit: cover !important  ;
+    object-fit: cover !important;
 }
 
 .blog-img-2 {
     border-radius: 200px;
 
 }
+
 
 
 .recent-col {
@@ -34,48 +35,75 @@
     color: gray;
 }
 
-
+.text-heading-blog {
+    font-size: 17px !important;
+}
 
 .cards {
     box-shadow: 2px 2px 15px gray !important;
     overflow: hidden !important;
-    display: flex !important    ;
+    display: flex !important;
     flex-direction: column !important;
     justify-content: space-around !important;
+    width: 22rem;
+
 }
 
-.wrapper{
+.wrapper {
     display: grid !important;
-    grid-template-columns: repeat(3, 1fr) !important;
+    grid-template-columns: repeat(2, 1fr) !important;
     grid-gap: 3rem;
 }
 
-  
+
 
 
 @media only screen and (max-width: 768px) {
     .main-card-div {
-       padding-top: 7%;
-       padding-left: 0%;
-       padding-right: 0%;
+        padding-top: 0%;
+        padding-left: 0%;
+        padding-right: 0%;
     }
-    
-    .wrapper{
+
+    .wrapper {
         display: grid !important;
         grid-template-columns: repeat(2, 1fr) !important;
         grid-gap: 3rem;
     }
-    
 
+
+    .cards {
+        width: 19.5rem !important;
+    }
 
 }
+
+@media only screen and (max-width: 667px) {
+    .main-card-div {
+        padding-top: 0%;
+        padding-left: 0%;
+        padding-right: 0%;
+    }
+
+    .wrapper {
+        display: grid !important;
+        grid-template-columns: repeat(2, 1fr) !important;
+        grid-gap: 3rem;
+    }
+
+
+    .cards {
+        width: 16.5rem !important;
+    }
+}
+
 @media only screen and (max-width: 600px) {
-    .wrapper{
+    .wrapper {
         display: grid !important;
         grid-template-columns: repeat(1, 1fr) !important;
         grid-gap: 3rem;
     }
-    
+
 
     .cards {
         width: 18rem !important;
@@ -83,23 +111,142 @@
 
 
     @media only screen and (max-width: 320px) {
-    .blog-main-page {
-        columns: auto !important;
-        margin: auto !important;
-        padding: 2%;
-    }
+        .blog-main-page {
+            columns: auto !important;
+            margin: auto !important;
+            padding: 2%;
+        }
+
         .cards {
-            width: 14rem !important;
+
+            width: 16rem !important;
         }
     }
 }
 
-.liked{
+
+
+.liked {
     color: red !important;
 }
 
-.like{
-    color: rgb(209, 209, 209)!important;
+.like {
+    color: rgb(209, 209, 209) !important;
 }
 
-.main-recent-div{}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Tech and for all
+
+.slick-prev:before,
+.slick-next:before {
+    color: gray !important;
+}
+
+
+.blog-img-user {
+    height: 40px !important;
+    border-radius: 100px !important;
+}
+
+.gt {
+    float: right !important;
+}
+
+.gt2 {
+    float: right !important;
+}
+
+.column-user {
+    float: left;
+
+}
+
+/* Clearfix (clear floats) */
+.row-main::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+.card-detail {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    color: gray;
+}
+
+.cards-tech {
+    box-shadow: 2px 2px 15px gray !important;
+    overflow: hidden !important;
+
+
+}
+
+
+
+
+@media only screen and (max-width: 820px) {
+    .text-heading {
+        font-size: 16px !important;
+    }
+
+    .cards-tech {
+        height: 29rem;
+    }
+}
+
+@media only screen and (max-width: 667px) {
+    .text-heading {
+        font-size: 16px !important;
+    }
+
+    .cards-tech {
+        height: 24rem;
+    }
+}
+
+
+@media only screen and (max-width: 428px) {
+    .text-heading {
+        font-size: 16px !important;
+    }
+
+    .cards-tech {
+
+        text-align: left;
+    }
+
+}
+
+
+
+@media only screen and (max-width: 320px) {
+    .text-heading {
+        font-size: 16px !important;
+    }
+
+    .cards-tech {
+        height: 25rem;
+    }
+}
+
+
+.card-txt {
+    font-size: 14px;
+}

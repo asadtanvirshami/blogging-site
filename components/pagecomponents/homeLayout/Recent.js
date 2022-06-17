@@ -22,17 +22,18 @@ export const Recent = ({ recentBlog }) => {
         {recent.slice(0, 1).map((bg, index) => {
           return (
             <div key={index} className="   ">
-              <Card style={{ width: "20rem" }} className="cards ">
+              <Card  className="cards ">
                 <img className="blog-img img-fluid" src={bg.blogcover} />
                 <Card.Body>
-                  <h5>{bg.blogtitle}</h5>
-                  <Card.Text>
+                  <Card.Title className="text-heading">{bg.blogtitle}</Card.Title>
+                  <Card.Text className="card-txt">
                     {parse(`${bg.posts.slice(0, 160)}...`)}
                     <a>Readmore</a>
                   </Card.Text>
                   <Form.Text muted>
                     by {bg.firstname} {bg.lastname}
                   </Form.Text>
+
                   <br />
                   <Form.Text muted>
                     Posted {moment(bg.createdAt).fromNow()}

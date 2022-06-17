@@ -14,18 +14,24 @@ const Index = ({ blogs, recentBlog,techBlog }) => {
   return (
     // <Form.Text muted>{moment(bit.time).fromNow()}</Form.Text>
 
-    <div className="index-bg">
-      <div>
+    <div className="index-bg ">
+     
+<div className="container">
+  
         <Recent recentBlog={recentBlog} />
-      </div>
-      <div className="">
+    
+        </div>
+        <div className="container">
+        <div className=" px-4">
         <Tech techBlog={techBlog} />
-      </div>
-      <div className="">
+        </div>
+        </div>
+        
+        <div className="">
         <BlogFeedPage blogs={blogs} />
-      </div>
-      
-    </div>
+        </div>
+        </div>
+
   );
 };
 
