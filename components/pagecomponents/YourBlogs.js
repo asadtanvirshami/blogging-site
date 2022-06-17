@@ -5,7 +5,7 @@ import Cookies from "js-cookie";
 import parse, { domToReact, htmlToDOM, Element } from "html-react-parser";
 import moment from "moment";
 
-export const YourBlogs = () => {
+export const YourBlogsPage = () => {
 
   
   const [Aprv, setAprv] = useState([]);
@@ -71,4 +71,4 @@ export const YourBlogs = () => {
   );
 };
 
-export default YourBlogs;
+export default YourBlogsPage;

@@ -53,7 +53,7 @@ export const BlogFeedPage = ({ blogs }) => {
                     <img className="blog-img img-fluid" src={bg.blogcover} />
                     <Card.Body className="px-3 pt-4">
                       <Card.Title className="text-heading">{bg.blogtitle}</Card.Title>
-                      <div class>{parse(`${bg.posts.slice(0, 150)}...`)}</div>
+                      <div className="">{parse(`${bg.posts.slice(0, 150)}...`)}</div>
                       <div className="row-main  ">
                         <div className="column-user mx-1 px-1">
                           <img className="blog-img-user " src={bg.pfpUser} />

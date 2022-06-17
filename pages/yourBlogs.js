@@ -1,12 +1,12 @@
 import React, { useState, useEffect, Fragment } from 'react'
 import axios from 'axios'
 import Cookies from 'js-cookie'
-import YourBlogs from '../components/pagecomponents/YourBlogs'
+import { YourBlogsPage } from '../components/pagecomponents/YourBlogs'
 import Cookiess from 'cookies';
 import Router from 'next/router';
 
 
-export const yourBlogs = ({sessionData}) => {
+export const YourBlogs = ({sessionData}) => {
      useEffect(() => {
         if (sessionData.auth != true) {
             Router.push('/login')
@@ -16,13 +16,13 @@ export const yourBlogs = ({sessionData}) => {
     return (
 
         <div className="container pt-5">
-        <YourBlogs/>
+        <YourBlogsPage/>
         </div>
     ) 
 
 }
 
-export default yourBlogs
+export default YourBlogsPage
 
 export async function getServerSideProps({ req, res }) {
     // Fetch data from external API
