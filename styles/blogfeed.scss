@@ -45,7 +45,7 @@
     display: flex !important;
     flex-direction: column !important;
     justify-content: space-around !important;
-    width: 22rem;
+    width: 27rem;
 
 }
 
@@ -56,6 +56,45 @@
 }
 
 
+.cards {
+    box-shadow: 2px 2px 15px gray !important;
+    overflow: hidden !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: space-around !important;
+    width: 27rem;
+
+
+
+}
+
+@media only screen and (max-width: 912px) {
+    .cards {
+        box-shadow: 2px 2px 15px gray !important;
+        overflow: hidden !important;
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: space-around !important;
+        width: 19rem;
+    
+    
+    
+    }
+}
+
+@media only screen and (max-width: 828px) {
+    .cards {
+        box-shadow: 2px 2px 15px gray !important;
+        overflow: hidden !important;
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: space-around !important;
+        width: 22rem;
+    
+    
+    
+    }
+}
 
 
 @media only screen and (max-width: 768px) {
@@ -124,6 +163,16 @@
     }
 }
 
+@media only screen and (max-width: 320px) {
+    .text-heading {
+        font-size: 16px !important;
+    }
+
+    .cards {
+
+        width: 13rem !important;
+    }
+}
 
 
 .liked {
@@ -191,10 +240,10 @@
     color: gray;
 }
 
-.cards-tech {
+.card-btm {
     box-shadow: 2px 2px 15px gray !important;
     overflow: hidden !important;
-
+   
 
 }
 
@@ -249,4 +298,32 @@
 
 .card-txt {
     font-size: 14px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// GameTech page
+
+
+
+
+.css-et1ao3-MuiTypography-root{
+font-size: 14px !important; 
+}
+
+.game-card{
+    box-shadow: 2px 2px 15px gray !important;
+    overflow: hidden !important;
 }

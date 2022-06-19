@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import parse, { domToReact, htmlToDOM, Element } from "html-react-parser";
 import moment from "moment";
-import { FormText } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart } from "@fortawesome/free-solid-svg-icons";
 import Slider from "react-slick";
@@ -18,12 +17,6 @@ import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
 import { red } from "@mui/material/colors";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
-import { Form } from "react-bootstrap";
-import { maxHeight } from "@mui/system";
-
-
-
-
 
 const ExpandMore = styled((props) => {
   const { expand, ...other } = props;
@@ -36,14 +29,13 @@ const ExpandMore = styled((props) => {
   }),
 }));
 
-
-export const Tech = ({ techBlog }) => {
-  const [techBlogs, setTechBlogs] = useState([]);
+export const Gaming = ({ gameBlog }) => {
+  const [gameBlogs, setGameBlogs] = useState([]);
 
   useEffect(() => {
-    setTechBlogs(techBlog);
-    console.log(techBlog);
-  }, [techBlogs]);
+    setGameBlogs(gameBlog);
+    console.log(gameBlog);
+  }, [gameBlogs]);
 
   function SampleNextArrow(props) {
     const { className, style, onClick } = props;
@@ -106,44 +98,44 @@ export const Tech = ({ techBlog }) => {
 
   return (
     <div className=" ">
-        <Slider {...settings} className="  ">
-        {techBlogs.map((bg, index) => {
+      <Slider {...settings} className="  ">
+        {gameBlogs.map((bg, index) => {
           return (
             <div key={index} className="px-2 mt-3 mb-3    ">
-              <Card sx={{ maxWidth: 345}} className="game-card">
-        
+              <Card sx={{ maxWidth: 345 }} className="game-card">
+                <CardHeader
+                  avatar={
+                    <Avatar  aria-label="recipe">
+                      <img className="img-fluid" src={bg.pfpUser} />
+                    </Avatar>
+                  }
+                  action={
+                    <IconButton aria-label="settings">
+                      <MoreVertIcon />
+                    </IconButton>
+                  }
+                
+                  title={bg.blogtitle}
+                  subheader={moment(bg.createdAt).fromNow()}
+                />
                 <CardMedia
                   component="img"
                   height="1940"
                   className="img-fluid "
                   image={bg.blogcover}
-
+                  alt="Paella dish"
                 />
                 <CardContent>
-                <h5>{bg.blogtitle}</h5>
+                    <h5>{bg.blogtitle}</h5>
                   <Typography
                     variant="body2"
                     color="text.secondary"
                   >{parse(`${bg.posts.slice(0, 150)}...`)}</Typography>
-                  <CardHeader
-              
-                  avatar={
-                    <Avatar>
-                      <img className="img-fluid" src={bg.pfpUser} />
-                    
-                    </Avatar>
-                  }
-
-                  
-                  title={bg.postedBy}
-                  subheader={moment((bg.createdAt)).fromNow()}
-                />
-                   <span style={{ float: "right" }} className="pb-2">
+                      <span style={{ float: "right" }} className="pb-2">
                     <FontAwesomeIcon icon={faHeart} className="like" />
                     <b className="likes-count">{bg.likes}</b>
                   </span>
                 </CardContent>
-                
               </Card>
             </div>
           );

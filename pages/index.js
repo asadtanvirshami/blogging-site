@@ -5,9 +5,10 @@ import { BlogFeedPage } from "../components/pagecomponents/homeLayout/IndexPage"
 import Router from "next/router";
 import { Recent } from "../components/pagecomponents/homeLayout/Recent";
 import { Tech } from "../components/pagecomponents/homeLayout/Tech";
+import { Gaming } from "../components/pagecomponents/homeLayout/Gaming";
 
 // eslint-disable-next-line react/display-name
-const Index = ({ blogs, recentBlog,techBlog }) => {
+const Index = ({ blogs, recentBlog,techBlog,gameBlog }) => {
   axios.defaults.withCredentials = true;
   const router = Router;
 
@@ -17,30 +18,29 @@ const Index = ({ blogs, recentBlog,techBlog }) => {
     <div className="index-bg ">
      
 <div className="container">
-  
         <Recent recentBlog={recentBlog} />
-    
         </div>
-        <div className="container">
+        {/* <div className="container">
         <div className=" px-4">
         <Tech techBlog={techBlog} />
         </div>
         </div>
+        <div className="container">
+        <div className=" px-4">
+        <Gaming gameBlog={gameBlog} />
+        </div>
+        </div> */}
         
         <div className="">
         <BlogFeedPage blogs={blogs} />
         </div>
         </div>
-
   );
 };
 
 export default Index;
 
 export async function getServerSideProps({ req, res }) {
-  // Fetch data from external API
-
-  // Fetch data from external API
   const cookies = new Cookiess(req, res);
   const value = await axios
     .get(process.env.NEXT_PUBLIC_FP_GET_JWT, {
@@ -58,19 +58,13 @@ export async function getServerSideProps({ req, res }) {
   (process.env.NEXT_PUBLIC_FP_GET_APPROVEDS);
 
   const requestRecent = await axios.get(
-    process.env.NEXT_PUBLIC_FP_MOSTLIKE_BLOGS
+    process.env.NEXT_PUBLIC_FP_RECENT_BLOGS
   );
-  const requestTech = await axios.get(
-    process.env.NEXT_PUBLIC_FP_TECH_BLOGS
-  );
-
-
+ 
   const blogs = await request.data;
-  const recentBlog = await requestRecent.data;
-  const techBlog = await requestTech.data;
 
   // Pass data to the page via props
   return {
-    props: { blogs: blogs, sessionData: sessionData, recentBlog: recentBlog, techBlog:techBlog },
+    props: { blogs: blogs, sessionData: sessionData,},
   };
 }

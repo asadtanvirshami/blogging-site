@@ -19,6 +19,7 @@ export const Recent = ({ recentBlog }) => {
   return (
     <div className=" mt-5 container   ">
       <div className=" ">
+        <h3>Technology</h3>
         {recent.slice(0, 1).map((bg, index) => {
           return (
             <div key={index} className="   ">
