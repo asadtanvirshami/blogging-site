@@ -15,6 +15,7 @@ export const ProfilePage = ({ user }) => {
   const [name, setName] = useState("");
   const [detail, setDetail] = useState([]);
   const [selectedImage, setSelectedImage] = useState("");
+  const [id, setID]=useState([])
 
   const [type, setType] = useState([]);
   useEffect(() => {
@@ -40,9 +41,8 @@ export const ProfilePage = ({ user }) => {
     formData.append("file", selectedImage);
     formData.append("upload_preset", "coverPics");
 
-    await fetch("https://api.cloudinary.com/v1_1/dwuzocatf/image/upload", {
-      method: "post",
-      body: formData,
+    await axios.post(process.env.CLOUDINARY_URL, {
+      formData
     })
       .then((resp) => resp.json())
       .then((data) => {
@@ -62,9 +62,9 @@ export const ProfilePage = ({ user }) => {
 
   const update = (e) => {
     e.preventDefault();
-    const res = axios
+     axios
       .post(process.env.NEXT_PUBLIC_FP_UPDATE_USERSINFO, {
-        username: `${Cookies.get("user")}`,
+        id: id,
         update_user: userReg,
         update_bio: bioReg,
         update_edu: eduReg,
@@ -73,7 +73,6 @@ export const ProfilePage = ({ user }) => {
       })
       .then((x) => {
         console.log(x.status);
-        Cookies.set("user", userReg);
       });
   };
 
@@ -86,7 +85,8 @@ export const ProfilePage = ({ user }) => {
       })
       .then((res) => {
         setDetail(res.data.userdetail);
-        console.log(res.data.userdetail);
+        setID(res.data.userdetail[0].id)
+        console.log(res.data.userdetail[0].id);
       })
       .catch((err) => {
         console.log(err);
@@ -107,7 +107,7 @@ export const ProfilePage = ({ user }) => {
           <Modal.Title>Setting</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <Form>
+          <Form  onSubmit={update}>
             <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
               <Form.Label>Username</Form.Label>
               <Form.Control
@@ -169,15 +169,16 @@ export const ProfilePage = ({ user }) => {
                 }}
               />
             </Form.Group>
+            <Button type="submit" variant="primary">
+            Save Changes
+          </Button>
           </Form>
         </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={handleClose}>
             Close
           </Button>
-          <Button variant="primary" onClick={update}>
-            Save Changes
-          </Button>
+        
         </Modal.Footer>
       </Modal>
 

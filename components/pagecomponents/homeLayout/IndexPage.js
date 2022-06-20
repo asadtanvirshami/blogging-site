@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, Fragment } from "react";
 import axios from "axios";
 import { Form, Col, Button, Row, Card } from "react-bootstrap";
 import parse, { domToReact, htmlToDOM, Element } from "html-react-parser";
@@ -14,6 +14,8 @@ export const BlogFeedPage = ({ blogs }) => {
 
   useEffect(() => {
     setBlogList(blogs);
+    console.log(blogs)
+    
   }, [bogList]);
 
   const likeLog = async (id, i) => {
@@ -46,6 +48,7 @@ export const BlogFeedPage = ({ blogs }) => {
       <div className=" d-flex">
         <Row className="m-auto blog-main-page align-self-center">
           <Col className="wrapper container">
+            <Fragment>
             {bogList.map((bg, index) => {
               return (
                 <div key={index} className=" main-card-div    ">
@@ -74,6 +77,7 @@ export const BlogFeedPage = ({ blogs }) => {
                 </div>
               );
             })}
+            </Fragment>
           </Col>
         </Row>
       </div>

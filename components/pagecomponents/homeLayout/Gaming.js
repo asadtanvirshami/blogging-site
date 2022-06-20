@@ -29,12 +29,12 @@ const ExpandMore = styled((props) => {
   }),
 }));
 
-export const Gaming = ({ gameBlog }) => {
+export const Gaming = ({ game }) => {
   const [gameBlogs, setGameBlogs] = useState([]);
 
   useEffect(() => {
-    setGameBlogs(gameBlog);
-    console.log(gameBlog);
+    setGameBlogs(game);
+    console.log(game);
   }, [gameBlogs]);
 
   function SampleNextArrow(props) {

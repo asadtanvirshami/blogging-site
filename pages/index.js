@@ -8,7 +8,7 @@ import { Tech } from "../components/pagecomponents/homeLayout/Tech";
 import { Gaming } from "../components/pagecomponents/homeLayout/Gaming";
 
 // eslint-disable-next-line react/display-name
-const Index = ({ blogs, recentBlog,techBlog,gameBlog }) => {
+const Index = ({blogs}) => {
   axios.defaults.withCredentials = true;
   const router = Router;
 
@@ -16,25 +16,25 @@ const Index = ({ blogs, recentBlog,techBlog,gameBlog }) => {
     // <Form.Text muted>{moment(bit.time).fromNow()}</Form.Text>
 
     <div className="index-bg ">
-     
+{/*            
 <div className="container">
-        <Recent recentBlog={recentBlog} />
+        <Recent recent={recent} />
         </div>
-        {/* <div className="container">
+        <div className="container">
         <div className=" px-4">
-        <Tech techBlog={techBlog} />
+        <Tech blogs={blogs} />
         </div>
         </div>
         <div className="container">
         <div className=" px-4">
-        <Gaming gameBlog={gameBlog} />
+        <Gaming game={game}  />
         </div>
         </div> */}
-        
-        <div className="">
+
+      <div className="">
         <BlogFeedPage blogs={blogs} />
-        </div>
-        </div>
+      </div>
+    </div>
   );
 };
 
@@ -52,19 +52,17 @@ export async function getServerSideProps({ req, res }) {
     })
     .then((x) => x.data);
   console.log(value);
+
   const sessionData = await value;
 
-  const request = await axios.get
-  (process.env.NEXT_PUBLIC_FP_GET_APPROVEDS);
-
-  const requestRecent = await axios.get(
-    process.env.NEXT_PUBLIC_FP_RECENT_BLOGS
-  );
- 
-  const blogs = await request.data;
+  const request = await axios
+    .get(process.env.NEXT_PUBLIC_FP_GET_APPROVEDS)
+    .then((x) => x.data);
+  console.log(request);
+  const blogs = await request;
 
   // Pass data to the page via props
   return {
-    props: { blogs: blogs, sessionData: sessionData,},
+    props: { blogs: blogs, sessionData: sessionData },
   };
 }

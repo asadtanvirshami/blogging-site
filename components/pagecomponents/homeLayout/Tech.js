@@ -37,13 +37,13 @@ const ExpandMore = styled((props) => {
 }));
 
 
-export const Tech = ({ techBlog }) => {
-  const [techBlogs, setTechBlogs] = useState([]);
+export const Tech = ({ techBlogs }) => {
+  const [techBlog, setTechBlogs] = useState([]);
 
   useEffect(() => {
-    setTechBlogs(techBlog);
-    console.log(techBlog);
-  }, [techBlogs]);
+    setTechBlogs(techBlogs);
+    console.log(techBlogs);
+  }, [techBlog]);
 
   function SampleNextArrow(props) {
     const { className, style, onClick } = props;
@@ -107,7 +107,7 @@ export const Tech = ({ techBlog }) => {
   return (
     <div className=" ">
         <Slider {...settings} className="  ">
-        {techBlogs.map((bg, index) => {
+        {techBlog.map((bg, index) => {
           return (
             <div key={index} className="px-2 mt-3 mb-3    ">
               <Card sx={{ maxWidth: 345}} className="game-card">
@@ -152,3 +152,6 @@ export const Tech = ({ techBlog }) => {
     </div>
   );
 };
+
+
+export default Tech
