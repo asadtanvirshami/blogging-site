@@ -15,8 +15,8 @@ export const ProfilePage = ({ user }) => {
   const [name, setName] = useState("");
   const [detail, setDetail] = useState([]);
   const [selectedImage, setSelectedImage] = useState("");
-  const [type, setType] = useState([]);
 
+  const [type, setType] = useState([]);
   useEffect(() => {
     let res = axios
       .get("https://restcountries.com/v2/all")
@@ -34,35 +34,36 @@ export const ProfilePage = ({ user }) => {
   const handleShow = () => setShow(true);
   const [show, setShow] = useState(false);
 
-  // const onFileSelected = async (event, files) => {
-  //   event.preventDefault();
-  //   const formData = new FormData();
-  //   formData.append("file", selectedImage);
-  //   formData.append("upload_preset", "coverPics");
+  const onFileSelected = async (event, files) => {
+    event.preventDefault();
+    const formData = new FormData();
+    formData.append("file", selectedImage);
+    formData.append("upload_preset", "coverPics");
 
-  //   await axios.post(process.env.CLOUDINARY_URL, {
-  //     formData
-  //   })
-  //     .then((resp) => resp.json())
-  //     .then((data) => {
-  //       console.log(data.url);
+    await axios.post(process.env.CLOUDINARY_URL, {
+      formData
+    })
+      .then((resp) => resp.json())
+      .then((data) => {
+        console.log(data.url);
 
-  //       axios.post(process.env.NEXT_PUBLIC_FP_UPDATE_PFP, {
-  //         username: `${Cookies.get("user")}`,
-  //         pfp: data.url,
-  //       });
+        axios.post(process.env.NEXT_PUBLIC_FP_UPDATE_PFP, {
+          username: `${Cookies.get("user")}`,
+          pfp: data.url,
+        });
 
-  //       axios.post(process.env.NEXT_PUBLIC_FP_UPDATE_PFP_BLOG, {
-  //         username: `${Cookies.get("user")}`,
-  //         pfp: data.url,
-  //       });
-  //     });
-  // };
+        axios.post(process.env.NEXT_PUBLIC_FP_UPDATE_PFP_BLOG, {
+          username: `${Cookies.get("user")}`,
+          pfp: data.url,
+        });
+      });
+  };
 
   const update = (e) => {
     e.preventDefault();
      axios
       .post(process.env.NEXT_PUBLIC_FP_UPDATE_USERSINFO, {
+        username: `${Cookies.get("user")}`,
         update_user: userReg,
         update_bio: bioReg,
         update_edu: eduReg,
@@ -99,8 +100,12 @@ export const ProfilePage = ({ user }) => {
 
   return (
     <div>
-
-          <Form onSubmit={update}  >
+      <Modal show={show} onHide={handleClose}>
+        <Modal.Header closeButton>
+          <Modal.Title>Setting</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <Form  onSubmit={update}>
             <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
               <Form.Label>Username</Form.Label>
               <Form.Control
@@ -162,15 +167,17 @@ export const ProfilePage = ({ user }) => {
                 }}
               />
             </Form.Group>
-            <Button variant="primary" type="submit" >
-            Save Changes
-          </Button>
           </Form>
+        </Modal.Body>
+        <Modal.Footer>
           <Button variant="secondary" onClick={handleClose}>
             Close
           </Button>
-         
-
+          <Button variant="primary" onClick={update}>
+            Save Changes
+          </Button>
+        </Modal.Footer>
+      </Modal>
 
       {detail.map((bit, index) => {
         return (
