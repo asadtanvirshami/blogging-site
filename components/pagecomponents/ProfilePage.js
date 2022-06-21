@@ -15,9 +15,8 @@ export const ProfilePage = ({ user }) => {
   const [name, setName] = useState("");
   const [detail, setDetail] = useState([]);
   const [selectedImage, setSelectedImage] = useState("");
-  const [id, setID]=useState([])
-
   const [type, setType] = useState([]);
+
   useEffect(() => {
     let res = axios
       .get("https://restcountries.com/v2/all")
@@ -64,7 +63,7 @@ export const ProfilePage = ({ user }) => {
     e.preventDefault();
      axios
       .post(process.env.NEXT_PUBLIC_FP_UPDATE_USERSINFO, {
-        id: id,
+        username: `${Cookies.get("user")}`,
         update_user: userReg,
         update_bio: bioReg,
         update_edu: eduReg,
@@ -85,8 +84,7 @@ export const ProfilePage = ({ user }) => {
       })
       .then((res) => {
         setDetail(res.data.userdetail);
-        setID(res.data.userdetail[0].id)
-        console.log(res.data.userdetail[0].id);
+        console.log(res.data.userdetail);
       })
       .catch((err) => {
         console.log(err);
@@ -102,11 +100,7 @@ export const ProfilePage = ({ user }) => {
 
   return (
     <div>
-      <Modal show={show} onHide={handleClose}>
-        <Modal.Header closeButton>
-          <Modal.Title>Setting</Modal.Title>
-        </Modal.Header>
-        <Modal.Body>
+
           <Form  onSubmit={update}>
             <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
               <Form.Label>Username</Form.Label>
@@ -169,18 +163,15 @@ export const ProfilePage = ({ user }) => {
                 }}
               />
             </Form.Group>
-            <Button type="submit" variant="primary">
+            <Button variant="primary" type="submit" >
             Save Changes
           </Button>
           </Form>
-        </Modal.Body>
-        <Modal.Footer>
           <Button variant="secondary" onClick={handleClose}>
             Close
           </Button>
-        
-        </Modal.Footer>
-      </Modal>
+         
+
 
       {detail.map((bit, index) => {
         return (
