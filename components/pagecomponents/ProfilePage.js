@@ -40,8 +40,9 @@ export const ProfilePage = ({ user }) => {
     formData.append("file", selectedImage);
     formData.append("upload_preset", "coverPics");
 
-    await axios.post(process.env.CLOUDINARY_URL, {
-      formData
+    await fetch("https://api.cloudinary.com/v1_1/dwuzocatf/image/upload", {
+      "method":"post",
+     "body":formData
     })
       .then((resp) => resp.json())
       .then((data) => {
