@@ -172,6 +172,45 @@ export const ProfilePage = ({ user }) => {
          
 
 
+      {detail.map((bit, index) => {
+        return (
+          <div key={index} className="container mx-auto">
+            <Form className="container mx-auto">
+              <br></br>
+              <br></br>
+
+              <br></br>
+              <img src={bit.pfp} width={100} height={100} />
+              <input
+                type="file"
+                onChange={(e) => {
+                  setSelectedImage(e.target.files[0]);
+                }}
+              />
+
+              <button
+                onClick={(e) => {
+                  onFileSelected(e);
+                }}
+              >
+                Upload
+              </button>
+              <br></br>
+              <br></br>
+              <h5>Username: {name}</h5>
+              <h6>
+                Name: {bit.firstname} {bit.lastname}
+              </h6>
+              <br></br>
+              <h6>Bio: {bit.bio}</h6>
+              <h6>Country:{bit.country} </h6>
+              <h6>City: {bit.city}</h6>
+              <h6>Education: {bit.edu}</h6>
+              <small onClick={handleShow}>edit</small>
+            </Form>
+          </div>
+        );
+      })}
     </div>
   );
 };
