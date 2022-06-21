@@ -34,30 +34,30 @@ export const ProfilePage = ({ user }) => {
   const handleShow = () => setShow(true);
   const [show, setShow] = useState(false);
 
-  const onFileSelected = async (event, files) => {
-    event.preventDefault();
-    const formData = new FormData();
-    formData.append("file", selectedImage);
-    formData.append("upload_preset", "coverPics");
+  // const onFileSelected = async (event, files) => {
+  //   event.preventDefault();
+  //   const formData = new FormData();
+  //   formData.append("file", selectedImage);
+  //   formData.append("upload_preset", "coverPics");
 
-    await axios.post(process.env.CLOUDINARY_URL, {
-      formData
-    })
-      .then((resp) => resp.json())
-      .then((data) => {
-        console.log(data.url);
+  //   await axios.post(process.env.CLOUDINARY_URL, {
+  //     formData
+  //   })
+  //     .then((resp) => resp.json())
+  //     .then((data) => {
+  //       console.log(data.url);
 
-        axios.post(process.env.NEXT_PUBLIC_FP_UPDATE_PFP, {
-          username: `${Cookies.get("user")}`,
-          pfp: data.url,
-        });
+  //       axios.post(process.env.NEXT_PUBLIC_FP_UPDATE_PFP, {
+  //         username: `${Cookies.get("user")}`,
+  //         pfp: data.url,
+  //       });
 
-        axios.post(process.env.NEXT_PUBLIC_FP_UPDATE_PFP_BLOG, {
-          username: `${Cookies.get("user")}`,
-          pfp: data.url,
-        });
-      });
-  };
+  //       axios.post(process.env.NEXT_PUBLIC_FP_UPDATE_PFP_BLOG, {
+  //         username: `${Cookies.get("user")}`,
+  //         pfp: data.url,
+  //       });
+  //     });
+  // };
 
   const update = (e) => {
     e.preventDefault();
@@ -100,7 +100,7 @@ export const ProfilePage = ({ user }) => {
   return (
     <div>
 
-          <Form >
+          <Form onSubmit={update}  >
             <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
               <Form.Label>Username</Form.Label>
               <Form.Control
@@ -162,7 +162,7 @@ export const ProfilePage = ({ user }) => {
                 }}
               />
             </Form.Group>
-            <Button onClick={update} variant="primary" type="submit" >
+            <Button variant="primary" type="submit" >
             Save Changes
           </Button>
           </Form>
