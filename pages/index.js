@@ -4,7 +4,7 @@ import Cookiess from "cookies";
 import { BlogFeedPage } from "../components/pagecomponents/homeLayout/IndexPage";
 import Router from "next/router";
 import { Recent } from "../components/pagecomponents/homeLayout/Recent";
-import TechPage, { Tech } from "../components/pagecomponents/homeLayout/Tech";
+import { TechPage } from "../components/pagecomponents/homeLayout/Tech";
 import { Gaming, GamingPage } from "../components/pagecomponents/homeLayout/Gaming";
 
 // eslint-disable-next-line react/display-name
