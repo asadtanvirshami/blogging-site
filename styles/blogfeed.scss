@@ -62,7 +62,7 @@
     display: flex !important;
     flex-direction: column !important;
     justify-content: space-around !important;
-    width: 27rem;
+    width: 30rem;
 
 
 
@@ -127,12 +127,14 @@
     .wrapper {
         display: grid !important;
         grid-template-columns: repeat(2, 1fr) !important;
-        grid-gap: 3rem;
+        grid-gap: 2rem;
     }
 
 
     .cards {
-        width: 16.5rem !important;
+        width: 18.5rem !important;
+        height: 25.4rem !important;
+      
     }
 }
 
@@ -158,7 +160,7 @@
 
         .cards {
 
-            width: 16rem !important;
+            width: 18rem !important;
         }
     }
 }
@@ -169,7 +171,7 @@
     }
 
     .cards {
-
+        height: fit-content !important;
         width: 13rem !important;
     }
 }

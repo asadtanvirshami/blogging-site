@@ -4,7 +4,7 @@ import Cookiess from 'cookies';
 import Router from 'next/router';
 import ProfilePage from '../components/pagecomponents/ProfilePage'
 
-export const Pfp = ({sessionData}) => {
+export const Pfp = ({sessionData, info}) => {
 
     axios.defaults.withCredentials = true
     const router = Router
@@ -17,7 +17,7 @@ export const Pfp = ({sessionData}) => {
 
     return (
         <div>
-            <ProfilePage/>
+            <ProfilePage info={info}/>
         </div>
     )
 }
@@ -40,8 +40,19 @@ export async function getServerSideProps({ req, res }) {
     const sessionData = await value
 
 
-    // Pass data to the page via props
-    return {
-        props: { sessionData: sessionData }
-    }
+    const request = await axios
+    .get(process.env.NEXT_PUBLIC_FP_GET_USERDETAIL, {
+        headers: {
+          username: `${cookies.get("user")}`,
+        },
+      }).then((x) => x.data);
+
+  console.log(request);
+  const info = await request;
+
+  // Pass data to the page via props
+  return {
+    props: { info: info, sessionData: sessionData },
+  };
+  
 }

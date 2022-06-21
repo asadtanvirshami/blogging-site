@@ -29,13 +29,26 @@ const ExpandMore = styled((props) => {
   }),
 }));
 
-export const Gaming = ({ game }) => {
+export const GamingPage = () => {
   const [gameBlogs, setGameBlogs] = useState([]);
 
+
   useEffect(() => {
-    setGameBlogs(game);
-    console.log(game);
-  }, [gameBlogs]);
+    let res = axios
+      .get(process.env.NEXT_PUBLIC_FP_GAME_BLOGS, {
+      })
+
+      .then((res) => {
+        setGameBlogs(res.data);
+        console.log(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
+  console.log(gameBlogs);
+
+
 
   function SampleNextArrow(props) {
     const { className, style, onClick } = props;
@@ -144,3 +157,5 @@ export const Gaming = ({ game }) => {
     </div>
   );
 };
+
+export default GamingPage

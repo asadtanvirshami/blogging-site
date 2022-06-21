@@ -12,7 +12,7 @@ export const BlogFeedPage = ({ blogs }) => {
   const [bogList, setBlogList] = useState([]);
   const [showMore, setShowMore] = useState(false);
 
-  useEffect(() =>  {
+  useEffect(() => {
     setBlogList(blogs);
     console.log(blogs)
     

@@ -37,13 +37,25 @@ const ExpandMore = styled((props) => {
 }));
 
 
-export const Tech = ({ techBlogs }) => {
-  const [techBlog, setTechBlogs] = useState([]);
+export const TechPage = () => {
+  const [techBlogs, setTechBlogs] = useState([]);
+
 
   useEffect(() => {
-    setTechBlogs(techBlogs);
-    console.log(techBlogs);
-  }, [techBlog]);
+    let res = axios
+      .get(process.env.NEXT_PUBLIC_FP_TECH_BLOGS, {
+      })
+
+      .then((res) => {
+        setTechBlogs(res.data);
+        console.log(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
+  console.log(techBlogs);
+
 
   function SampleNextArrow(props) {
     const { className, style, onClick } = props;
@@ -107,7 +119,7 @@ export const Tech = ({ techBlogs }) => {
   return (
     <div className=" ">
         <Slider {...settings} className="  ">
-        {techBlog.map((bg, index) => {
+        {techBlogs.map((bg, index) => {
           return (
             <div key={index} className="px-2 mt-3 mb-3    ">
               <Card sx={{ maxWidth: 345}} className="game-card">
@@ -154,4 +166,4 @@ export const Tech = ({ techBlogs }) => {
 };
 
 
-export default Tech
+export default TechPage

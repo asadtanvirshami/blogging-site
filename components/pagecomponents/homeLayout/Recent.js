@@ -10,12 +10,22 @@ import Image from "next/image";
 
 export const Recent = ({ recent }) => {
   const [recentBLOG, setRecent] = useState([]);
-
   useEffect(() => {
-    setRecent(recent);
-    console.log(recent);
-  }, [recentBLOG]);
+    let res = axios
+      .get(process.env.NEXT_PUBLIC_FP_RECENT_BLOGS, {
+      })
 
+      .then((res) => {
+        setRecent(res.data);
+        console.log(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
+  console.log(recentBLOG);
+
+  
   return (
     <div className=" mt-5 container   ">
       <div className=" ">

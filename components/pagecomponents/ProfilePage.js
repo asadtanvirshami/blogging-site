@@ -3,9 +3,7 @@ import { Button, Image, InputGroup, Form, Modal, props } from "react-bootstrap";
 import Cookies from "js-cookie";
 import axios from "axios";
 
-export const ProfilePage = ({ user }) => {
-
-
+export const ProfilePage = ({ info }) => {
 
   const [bioReg, setBioReg] = useState("");
   const [eduReg, setEduReg] = useState("");
@@ -15,20 +13,16 @@ export const ProfilePage = ({ user }) => {
   const [name, setName] = useState("");
   const [detail, setDetail] = useState([]);
   const [selectedImage, setSelectedImage] = useState("");
-
   const [type, setType] = useState([]);
-  useEffect(() => {
-    let res = axios
-      .get("https://restcountries.com/v2/all")
 
-      .then((res) => {
-        setType(res.data);
-        console.log(res.data);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  }, []);
+
+
+  useEffect(() => {
+    setDetail(info);
+    console.log(info);
+  }, [detail]);
+
+  
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -76,28 +70,7 @@ export const ProfilePage = ({ user }) => {
       });
   };
 
-  useEffect(() => {
-    let res = axios
-      .get(process.env.NEXT_PUBLIC_FP_GET_USERDETAIL, {
-        headers: {
-          username: `${Cookies.get("user")}`,
-        },
-      })
-      .then((res) => {
-        setDetail(res.data.userdetail);
-        console.log(res.data.userdetail);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  }, []);
-  console.log[detail];
 
-  const listItems = type.map((d, index) => (
-    <option className="scr-form dropdown" key={index}>
-      {d.name}
-    </option>
-  ));
 
   return (
     <div>
