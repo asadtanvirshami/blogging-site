@@ -63,7 +63,6 @@ export const ProfilePage = ({ user }) => {
     e.preventDefault();
      axios
       .post(process.env.NEXT_PUBLIC_FP_UPDATE_USERSINFO, {
-        username: `${Cookies.get("user")}`,
         update_user: userReg,
         update_bio: bioReg,
         update_edu: eduReg,
@@ -101,7 +100,7 @@ export const ProfilePage = ({ user }) => {
   return (
     <div>
 
-          <Form  onSubmit={update}>
+          <Form >
             <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
               <Form.Label>Username</Form.Label>
               <Form.Control
@@ -163,7 +162,7 @@ export const ProfilePage = ({ user }) => {
                 }}
               />
             </Form.Group>
-            <Button variant="primary" type="submit" >
+            <Button onClick={update} variant="primary" type="submit" >
             Save Changes
           </Button>
           </Form>
