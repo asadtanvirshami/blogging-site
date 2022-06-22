@@ -46,8 +46,8 @@ export const BlogFeedPage = ({ blogs }) => {
   return (
     <div className=" mt-5   ">
       <div className=" d-flex">
-        <Row className="m-auto blog-main-page align-self-center">
-          <Col className="wrapper container">
+        <Row className="m-auto  blog-main-page align-self-center">
+          <Col className="wrapper container mt-3">
             <Fragment>
             {bogList.map((bg, index) => {
               return (
@@ -58,11 +58,11 @@ export const BlogFeedPage = ({ blogs }) => {
                       <Card.Title className="text-heading">{bg.blogtitle}</Card.Title>
                       <div className="">{parse(`${bg.posts.slice(0, 150)}...`)}</div>
                       <div className="row-main  ">
-                        <div className="column-user mx-1 px-1">
+                        <div className="column-user ">
                           <img className="blog-img-user " src={bg.pfpUser} />
                         </div>
-                        <div className="column-user">
-                          <p className="card-txt">
+                        <div className="column-user ">
+                          <p className="card-txt px-2">
                             {bg.postedBy} <br />
                             <p>Posted {moment(bg.createdAt).fromNow()}</p>
                           </p>

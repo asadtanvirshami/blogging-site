@@ -13,10 +13,10 @@ export const LoginForm = () => {
 
 
     return (
-        <div>
-          
+        <div  >
+          <div className='login-div'>
           <LoginPage/>  
-
+          </div>
         </div>
     )
 

@@ -7,36 +7,19 @@ import { faHeart } from "@fortawesome/free-solid-svg-icons";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import { styled } from "@mui/material/styles";
-import Card from "@mui/material/Card";
-import CardHeader from "@mui/material/CardHeader";
-import CardMedia from "@mui/material/CardMedia";
-import CardContent from "@mui/material/CardContent";
-import Avatar from "@mui/material/Avatar";
-import IconButton from "@mui/material/IconButton";
-import Typography from "@mui/material/Typography";
-import { red } from "@mui/material/colors";
-import MoreVertIcon from "@mui/icons-material/MoreVert";
 
-const ExpandMore = styled((props) => {
-  const { expand, ...other } = props;
-  return <IconButton {...other} />;
-})(({ theme, expand }) => ({
-  transform: !expand ? "rotate(0deg)" : "rotate(180deg)",
-  marginLeft: "auto",
-  transition: theme.transitions.create("transform", {
-    duration: theme.transitions.duration.shortest,
-  }),
-}));
+import { Card } from "react-bootstrap";
+import { red } from "@mui/material/colors";
+
+
+
 
 export const GamingPage = () => {
   const [gameBlogs, setGameBlogs] = useState([]);
 
-
   useEffect(() => {
     let res = axios
-      .get(process.env.NEXT_PUBLIC_FP_GAME_BLOGS, {
-      })
+      .get(process.env.NEXT_PUBLIC_FP_GAME_BLOGS, {})
 
       .then((res) => {
         setGameBlogs(res.data);
@@ -47,8 +30,6 @@ export const GamingPage = () => {
       });
   }, []);
   console.log(gameBlogs);
-
-
 
   function SampleNextArrow(props) {
     const { className, style, onClick } = props;
@@ -76,8 +57,8 @@ export const GamingPage = () => {
     dots: true,
     infinite: false,
     speed: 500,
-    slidesToShow: 3,
-    slidesToScroll: 3,
+    slidesToShow: 2,
+    slidesToScroll: 2,
     initialSlide: 0,
     nextArrow: <SampleNextArrow />,
     prevArrow: <SamplePrevArrow />,
@@ -110,46 +91,35 @@ export const GamingPage = () => {
   };
 
   return (
-    <div className=" ">
-      <Slider {...settings} className="  ">
+    <div className="slider-div ">
+      <Slider {...settings} className=" ">
         {gameBlogs.map((bg, index) => {
           return (
             <div key={index} className="px-2 mt-3 mb-3    ">
-              <Card sx={{ maxWidth: 345 }} className="game-card">
-                <CardHeader
-                  avatar={
-                    <Avatar  aria-label="recipe">
-                      <img className="img-fluid" src={bg.pfpUser} />
-                    </Avatar>
-                  }
-                  action={
-                    <IconButton aria-label="settings">
-                      <MoreVertIcon />
-                    </IconButton>
-                  }
-                
-                  title={bg.blogtitle}
-                  subheader={moment(bg.createdAt).fromNow()}
-                />
-                <CardMedia
-                  component="img"
-                  height="1940"
-                  className="img-fluid "
-                  image={bg.blogcover}
-                  alt="Paella dish"
-                />
-                <CardContent>
-                    <h5>{bg.blogtitle}</h5>
-                  <Typography
-                    variant="body2"
-                    color="text.secondary"
-                  >{parse(`${bg.posts.slice(0, 150)}...`)}</Typography>
-                      <span style={{ float: "right" }} className="pb-2">
-                    <FontAwesomeIcon icon={faHeart} className="like" />
-                    <b className="likes-count">{bg.likes}</b>
-                  </span>
-                </CardContent>
-              </Card>
+               <div key={index} className=" main-card-div    ">
+                  <Card className="slider-card ">
+                    <img className="blog-img img-fluid" src={bg.blogcover} />
+                    <Card.Body className="px-3 pt-4">
+                      <Card.Title className="text-heading">{bg.blogtitle}</Card.Title>
+                      <div className="">{parse(`${bg.posts.slice(0, 150)}...`)}</div>
+                      <div className="row-main  ">
+                        <div className="column-user ">
+                          <img className="blog-img-user " src={bg.pfpUser} />
+                        </div>
+                        <div className="column-user ">
+                          <p className="card-txt px-2">
+                            {bg.postedBy} <br />
+                            <p>Posted {moment(bg.createdAt).fromNow()}</p>
+                          </p>
+                        </div>
+                      </div>
+                      <span style={{ float: "right" }}>
+                        <FontAwesomeIcon icon={faHeart} className="like" />
+                        <b className="likes-count">{bg.likes}</b>
+                      </span>
+                    </Card.Body>
+                  </Card>
+                </div>
             </div>
           );
         })}
@@ -158,4 +128,4 @@ export const GamingPage = () => {
   );
 };
 
-export default GamingPage
+export default GamingPage;

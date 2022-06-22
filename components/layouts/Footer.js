@@ -4,7 +4,7 @@ import { Col, Row } from "react-bootstrap";
 export const Footer = () => {
   return (
     <footer className="main-footer mt-5">
-      {/* <Row className="container mx-auto">
+      <Row className="container mx-auto">
         <Col md="7" className="support-col mx-auto mt-4">
           <div>
             <h6>Support</h6>
@@ -26,7 +26,7 @@ export const Footer = () => {
         <Col md="12" className="mt-3 text-center">
           <small>Copyright© BlogNow 2022 </small>
         </Col>
-      </Row> */}
+      </Row>
     </footer>
   );
 };

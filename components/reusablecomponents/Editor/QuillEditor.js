@@ -177,9 +177,6 @@ export const Editor = ({ blog }, props) => {
               >
                 <option>Technology</option>
                 <option>Gaming</option>
-                <option>Sports</option>
-                <option>Health</option>
-                <option>Photography</option>
               </Form.Select>
             </Form.Group>
           </Form.Group>

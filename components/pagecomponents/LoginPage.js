@@ -47,12 +47,11 @@ export const LoginPage = () => {
 
   return (
     <div>
-      <div className="container">
+      <div className="container ">
         {/* form div */}
-        <h1 className="txt-heading text-center  mt-5">Welcome to BlogNow!</h1>
         <div className="col-md-12  d-flex justify-content-center ">
           <Form className="mt-4 login-form px-5 pt-5 pb-5 " onSubmit={Login}>
-            <h1 className="login-lables-heading text-center mb-4">Login</h1>
+            <h1 className="login-lables-heading text-center mb-4">BlogNow</h1>
             <Form.Group className="mb-3" controlId="formBasicEmail">
               <Form.Label className="login-lables">Username</Form.Label>
               <Form.Control
@@ -76,10 +75,8 @@ export const LoginPage = () => {
                 placeholder="Password"
               />
             </Form.Group>
-            <Form.Group className="mb-3" controlId="formBasicCheckbox">
-              <Form.Check type="checkbox" label="Check me out!" required />
-            </Form.Group>
-            <Button className="login-btn col-md-12" type="submit">
+
+            <Button className="login-btn col-md-12 mt-3" type="submit">
               Login
             </Button>
             <div className="text-center">
@@ -88,7 +85,7 @@ export const LoginPage = () => {
 
             <Button
               href="/signup"
-              className="createacc-btn col-md-12"
+              className="createacc-btn col-md-12 mb-2"
               type="submit"
             >
               Create new account

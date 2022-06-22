@@ -16,8 +16,8 @@
 }
 
 .blog-img {
-    height: 28vh !important;
-    object-fit: cover !important;
+    height: 27vh !important;
+
 }
 
 .blog-img-2 {
@@ -25,6 +25,11 @@
 
 }
 
+
+.blog-main-page{
+    
+border-top:solid 1px rgb(235, 228, 228) !important;
+} 
 
 
 .recent-col {
@@ -39,19 +44,11 @@
     font-size: 17px !important;
 }
 
-.cards {
-    box-shadow: 2px 2px 15px gray !important;
-    overflow: hidden !important;
-    display: flex !important;
-    flex-direction: column !important;
-    justify-content: space-around !important;
-    width: 27rem;
 
-}
 
 .wrapper {
     display: grid !important;
-    grid-template-columns: repeat(2, 1fr) !important;
+    grid-template-columns: repeat(3, 1fr) !important;
     grid-gap: 3rem;
 }
 
@@ -63,10 +60,59 @@
     flex-direction: column !important;
     justify-content: space-around !important;
     width: 30rem;
-
-
-
 }
+
+
+
+.cards:hover {
+    box-shadow: 2px 2px 25px gray !important;
+    overflow: hidden !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: space-around !important;
+    width: 30rem;
+    cursor: pointer !important ;
+}
+
+
+
+@media only screen and (max-width: 1440px) {
+    .cards {
+        box-shadow: 2px 2px 15px gray !important;
+        overflow: hidden !important;
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: space-around !important;
+        width: 28rem;   
+    }
+
+    .wrapper {
+        display: grid !important;
+        grid-template-columns: repeat(2, 1fr) !important;
+        grid-gap: 3rem;
+    }
+}
+
+
+
+
+@media only screen and (max-width: 1024px) {
+    .cards {
+        box-shadow: 2px 2px 15px gray !important;
+        overflow: hidden !important;
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: space-around !important;
+        width: 28rem;   
+    }
+
+    .wrapper {
+        display: grid !important;
+        grid-template-columns: repeat(2, 1fr) !important;
+        grid-gap: 3rem;
+    }
+}
+
 
 @media only screen and (max-width: 912px) {
     .cards {
@@ -133,7 +179,7 @@
 
     .cards {
         width: 18.5rem !important;
-        height: 25.4rem !important;
+        height: 27.8rem !important;
       
     }
 }
@@ -186,24 +232,7 @@
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// Tech and for all
+// Gaming & Tech
 
 .slick-prev:before,
 .slick-next:before {
@@ -237,6 +266,7 @@
 }
 
 .card-detail {
+    
     font-family: Arial, Helvetica, sans-serif;
     font-size: 12px;
     color: gray;
@@ -249,53 +279,11 @@
 
 }
 
-
-
-
-@media only screen and (max-width: 820px) {
-    .text-heading {
-        font-size: 16px !important;
-    }
-
-    .cards-tech {
-        height: 29rem;
-    }
-}
-
-@media only screen and (max-width: 667px) {
-    .text-heading {
-        font-size: 16px !important;
-    }
-
-    .cards-tech {
-        height: 24rem;
-    }
+.slider-div{
+    border-top:solid 1px rgb(235, 228, 228) !important;
 }
 
 
-@media only screen and (max-width: 428px) {
-    .text-heading {
-        font-size: 16px !important;
-    }
-
-    .cards-tech {
-
-        text-align: left;
-    }
-
-}
-
-
-
-@media only screen and (max-width: 320px) {
-    .text-heading {
-        font-size: 16px !important;
-    }
-
-    .cards-tech {
-        height: 25rem;
-    }
-}
 
 
 .card-txt {
@@ -304,28 +292,19 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-// GameTech page
-
-
-
-
-.css-et1ao3-MuiTypography-root{
-font-size: 14px !important; 
-}
-
-.game-card{
+.slider-card{
     box-shadow: 2px 2px 15px gray !important;
-    overflow: hidden !important;
 }
+
+
+.slider-card:hover {
+    box-shadow: 2px 2px 23px gray !important;
+    justify-content: space-around !important;
+
+    cursor: pointer !important ;
+}
+
+
+
+
+
