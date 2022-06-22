@@ -56,7 +56,7 @@ export const BlogFeedPage = ({ blogs }) => {
                     <img className="blog-img img-fluid" src={bg.blogcover} />
                     <Card.Body className="px-3 pt-4">
                       <Card.Title className="text-heading">{bg.blogtitle}</Card.Title>
-                      <div className="">{parse(`${bg.posts.slice(0, 150)}...`)}</div>
+                      <div className="card-txt">{parse(`${bg.posts.slice(0, 150)}...`)}</div>
                       <div className="row-main  ">
                         <div className="column-user ">
                           <img className="blog-img-user " src={bg.pfpUser} />
@@ -64,7 +64,7 @@ export const BlogFeedPage = ({ blogs }) => {
                         <div className="column-user ">
                           <p className="card-txt px-2">
                             {bg.postedBy} <br />
-                            <p>Posted {moment(bg.createdAt).fromNow()}</p>
+                            Posted {moment(bg.createdAt).fromNow()}
                           </p>
                         </div>
                       </div>
