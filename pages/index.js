@@ -44,21 +44,21 @@ const Index = ({ blogs }) => {
       </Swiper>
 
       <div className=" mt-5">
-        <h1 className="text-center heading-index-main" >All Blogs <Image src={blogs_logo} width={36} height={36}/></h1>
+        <h1 className="text-center heading-index-main" >All Blogs <Image src={blogs_logo} width={28} height={28}/></h1>
         <div className=" px-2">
           <BlogFeedPage blogs={blogs} />
         </div>
       </div>
 
       <div className="container mt-5">
-        <h1 className="text-center heading-index-main">Technology Blogs  <Image src={tech_logo} width={40} height={40}/></h1>
-        <div className=" px-3">
+        <h1 className="text-center heading-index-main">Technology Blogs  <Image src={tech_logo} width={28} height={28}/></h1>
+        <div className=" px-1">
           <TechPage />
         </div>
       </div>
       <div className="container mt-5">
-        <h1 className="text-center heading-index-main">Gaming Blogs <Image src={game_logo} width={40} height={40}/></h1>
-        <div className=" px-3">
+        <h1 className="text-center heading-index-main">Gaming Blogs <Image src={game_logo} width={28} height={28}/></h1>
+        <div className=" px-1">
           <GamingPage />
         </div>
       </div>

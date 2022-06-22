@@ -318,4 +318,10 @@ border-top:solid 1px rgb(235, 228, 228) !important;
 
 
 
+@media only screen and (max-width: 600px) {
 
+    .slider-card{
+        height: 28rem;
+        box-shadow: 2px 2px 15px gray !important;
+    }
+}
