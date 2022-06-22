@@ -59,7 +59,7 @@ export const GamingPage = () => {
     speed: 500,
     slidesToShow: 2,
     slidesToScroll: 2,
-    initialSlide: 0,
+    initialSlide: 1,
     nextArrow: <SampleNextArrow />,
     prevArrow: <SamplePrevArrow />,
     responsive: [
