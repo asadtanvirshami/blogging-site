@@ -69,6 +69,7 @@ export const GamingPage = () => {
           infinite: true,
           slidesToScroll: 1,
           slidesToShow: 1,
+          useTransform: false ,
           swipeToSlide: true,
         }
       }
