@@ -58,7 +58,8 @@ export const GamingPage = () => {
     infinite: false,
     speed: 500,
     slidesToShow: 2,
-
+    centerPadding: "15px",
+    autoPlay: false,
     responsive: [
       {
         breakpoint: 600,

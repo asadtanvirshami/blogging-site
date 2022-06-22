@@ -59,8 +59,12 @@ export const TechPage = () => {
   const settings = {
     dots: true,
     infinite: false,
-    speed: 500,
     slidesToShow: 2,
+     speed: 500,
+    centerPadding: "20px",
+    autoPlay: false,
+    useTransform: false ,
+ 
 
     responsive: [
       {
@@ -71,6 +75,7 @@ export const TechPage = () => {
           infinite: true,
           slidesToScroll: 1,
           slidesToShow: 1,
+          useTransform: false ,
           swipeToSlide: true,
         }
       }
