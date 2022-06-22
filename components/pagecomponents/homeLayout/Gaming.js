@@ -53,45 +53,30 @@ export const GamingPage = () => {
     );
   }
 
-  const settings = {
+  let settings = {
     dots: true,
     infinite: false,
     speed: 500,
     slidesToShow: 2,
-    slidesToScroll: 2,
-    initialSlide: 1,
-    nextArrow: <SampleNextArrow />,
-    prevArrow: <SamplePrevArrow />,
+
     responsive: [
-      {
-        breakpoint: 1024,
-        settings: {
-          slidesToShow: 2,
-          slidesToScroll: 2,
-          infinite: true,
-          dots: true,
-        },
-      },
       {
         breakpoint: 600,
         settings: {
-          slidesToShow: 2,
-          slidesToScroll: 2,
-          initialSlide: 2,
-        },
-      },
-      {
-        breakpoint: 480,
-        settings: {
-          slidesToShow: 1,
+          dots: true,
+          arrows: true,
+          infinite: true,
           slidesToScroll: 1,
-        },
-      },
-    ],
+          slidesToShow: 1,
+          swipeToSlide: true,
+        }
+      }
+    ]
   };
 
+
   return (
-    <div className="slider-div ">
+    <div className="slider-div  container">
       <Slider {...settings} className=" ">
         {gameBlogs.map((bg, index) => {
           return (

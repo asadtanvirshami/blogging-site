@@ -52,13 +52,13 @@ const Index = ({ blogs }) => {
 
       <div className="container mt-5">
         <h1 className="text-center heading-index-main">Technology Blogs  <Image src={tech_logo} width={28} height={28}/></h1>
-        <div className=" px-1">
+        <div className="container px-1">
           <TechPage />
         </div>
       </div>
       <div className="container mt-5">
         <h1 className="text-center heading-index-main">Gaming Blogs <Image src={game_logo} width={28} height={28}/></h1>
-        <div className=" px-1">
+        <div className="container px-1">
           <GamingPage />
         </div>
       </div>

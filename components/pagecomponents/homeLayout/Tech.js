@@ -61,46 +61,30 @@ export const TechPage = () => {
     infinite: false,
     speed: 500,
     slidesToShow: 2,
-    slidesToScroll: 2,
-    initialSlide: 0,
-    nextArrow: <SampleNextArrow />,
-    prevArrow: <SamplePrevArrow />,
+
     responsive: [
-      {
-        breakpoint: 1024,
-        settings: {
-          slidesToShow: 2,
-          slidesToScroll: 2,
-          infinite: true,
-          dots: true,
-        },
-      },
       {
         breakpoint: 600,
         settings: {
-          slidesToShow: 2,
-          slidesToScroll: 2,
-          initialSlide: 2,
-        },
-      },
-      {
-        breakpoint: 480,
-        settings: {
-          slidesToShow: 1,
+          dots: true,
+          arrows: true,
+          infinite: true,
           slidesToScroll: 1,
-        },
-      },
-    ],
+          slidesToShow: 1,
+          swipeToSlide: true,
+        }
+      }
+    ]
   };
 
   return (
-    <div className=" slider-div ">
+    <div className=" slider-div  container">
         <Slider {...settings} className="  ">
         {techBlogs.map((bg, index) => {
           return (
             <div key={index} className="px-2 mt-3 mb-3    ">
                <div key={index} className=" main-card-div    ">
-                  <Card className="slider-card ">
+                  <Card className="slider-card  ">
                     <img className="blog-img img-fluid" src={bg.blogcover} />
                     <Card.Body className="px-3 pt-4">
                       <Card.Title className="text-heading">{bg.blogtitle}</Card.Title>
