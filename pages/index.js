@@ -1,7 +1,7 @@
 import React, { useState, useEffect, Fragment } from "react";
 import axios from "axios";
 import Cookiess from "cookies";
-import Image from "next/Image";
+import Image from "next/image";
 import Router from "next/router";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, Scrollbar, A11y } from "swiper";
