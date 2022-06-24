@@ -4,12 +4,12 @@ import parse, { domToReact, htmlToDOM, Element } from "html-react-parser";
 import moment from "moment";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart } from "@fortawesome/free-solid-svg-icons";
+import { Card } from "react-bootstrap";
+import { red } from "@mui/material/colors";
+import Link from "next/link";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-
-import { Card } from "react-bootstrap";
-import { red } from "@mui/material/colors";
 
 
 
@@ -82,8 +82,9 @@ export const GamingPage = () => {
       <Slider {...settings} className=" ">
         {gameBlogs.map((bg, index) => {
           return (
-            <div key={index} className="px-2 mt-3 mb-3    ">
-               <div key={index} className=" main-card-div    ">
+            <div className="px-2 mt-3 mb-3" key={index}>
+               <div className=" main-card-div">
+               <Link href={'/blogs/'+ bg.id}  key={bg.id}>
                   <Card className="slider-card ">
                     <img className="blog-img img-fluid" src={bg.blogcover} />
                     <Card.Body className="px-3 pt-4">
@@ -106,6 +107,7 @@ export const GamingPage = () => {
                       </span>
                     </Card.Body>
                   </Card>
+                 </Link>
                 </div>
             </div>
           );

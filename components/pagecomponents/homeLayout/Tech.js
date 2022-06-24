@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import parse, { domToReact, htmlToDOM, Element } from "html-react-parser";
 import moment from "moment";
+import Slider from "react-slick";
+import Link from 'next/link';
+import parse, { domToReact, htmlToDOM, Element } from "html-react-parser";
 import { FormText } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart } from "@fortawesome/free-solid-svg-icons";
-import Slider from "react-slick";
 import { Card } from "react-bootstrap";
-
 
 
 
@@ -87,8 +87,9 @@ export const TechPage = () => {
         <Slider {...settings} className="  ">
         {techBlogs.map((bg, index) => {
           return (
-            <div key={index} className="px-2 mt-3 mb-3    ">
-               <div key={index} className=" main-card-div    ">
+            <div  className="px-2 mt-3 mb-3" key={index}>
+               <div className=" main-card-div    ">
+                 <Link href={'/blogs/'+ bg.id}  key={bg.id}>
                   <Card className="slider-card  ">
                     <img className="blog-img img-fluid" src={bg.blogcover} />
                     <Card.Body className="px-3 pt-4">
@@ -111,6 +112,7 @@ export const TechPage = () => {
                       </span>
                     </Card.Body>
                   </Card>
+                  </Link>
                 </div>
             </div>
           );

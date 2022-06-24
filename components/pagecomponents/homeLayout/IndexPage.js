@@ -1,11 +1,12 @@
 import React, { useEffect, useState, Fragment } from "react";
 import axios from "axios";
+import moment from "moment";
+import Image from "next/image";
+import Link from "next/link";
 import { Form, Col, Button, Row, Card } from "react-bootstrap";
 import parse, { domToReact, htmlToDOM, Element } from "html-react-parser";
-import moment from "moment";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart } from "@fortawesome/free-solid-svg-icons";
-import Image from "next/image";
 import { Recent } from "./Recent";
 
 export const BlogFeedPage = ({ blogs }) => {
@@ -52,6 +53,7 @@ export const BlogFeedPage = ({ blogs }) => {
             {bogList.map((bg, index) => {
               return (
                 <div key={index} className=" main-card-div    ">
+                       <Link href={'/blogs/'+ bg.id}  key={bg.id}>
                   <Card className="cards ">
                     <img className="blog-img img-fluid" src={bg.blogcover} />
                     <Card.Body className="px-3 pt-4">
@@ -74,6 +76,7 @@ export const BlogFeedPage = ({ blogs }) => {
                       </span>
                     </Card.Body>
                   </Card>
+                  </Link>
                 </div>
               );
             })}
