@@ -5,13 +5,11 @@ import Image from "next/image";
 import Router from "next/router";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, Scrollbar, A11y } from "swiper";
-import { Row, Col, Carousel, CarouselItem } from "react-bootstrap";
-import game_logo from '/public/games.png'
-import hero_img from "/public/hero.jpg";
-import tech_logo from '/public/technology.png'
-import blogs_logo from '/public/article.png'
+import {game_logo} from '/public/games.png'
+import {hero_img} from "/public/hero.jpg";
+import {tech_logo} from '/public/technology.png'
+import {blogs_logo} from '/public/article.png'
 import { BlogFeedPage } from "../components/pagecomponents/homeLayout/IndexPage";
-import { Recent } from "../components/pagecomponents/homeLayout/Recent";
 import { TechPage } from "../components/pagecomponents/homeLayout/Tech";
 import { GamingPage } from "../components/pagecomponents/homeLayout/Gaming";
 
