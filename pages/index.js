@@ -5,13 +5,10 @@ import Image from "next/image";
 import Router from "next/router";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, Scrollbar, A11y } from "swiper";
-import {game_logo} from '/public/games.png'
-import {hero_img} from "/public/hero.jpg";
-import {tech_logo} from '/public/technology.png'
-import {blogs_logo} from '/public/article.png'
-import { BlogFeedPage } from "../components/pagecomponents/homeLayout/IndexPage";
-import { TechPage } from "../components/pagecomponents/homeLayout/Tech";
-import { GamingPage } from "../components/pagecomponents/homeLayout/Gaming";
+import GameCom from "../components/pagecomponents/homeLayout/GameCom";
+import TechCom from "../components/pagecomponents/homeLayout/TechCom";
+import IndexPage from "../components/pagecomponents/homeLayout/IndexPage";
+
 
 import "swiper/css";
 import "swiper/css/navigation";
@@ -37,27 +34,27 @@ const Index = ({ blogs }) => {
         onSwiper={(swiper) => console.log(swiper)}
       >
         <SwiperSlide>
-          <Image className="" src={hero_img} height={1300} width={3000} />
+      
         </SwiperSlide>
       </Swiper>
 
       <div className=" mt-5">
-        <h1 className="text-center heading-index-main" >All Blogs <Image src={blogs_logo} width={28} height={28}/></h1>
+        <h1 className="text-center heading-index-main" >All Blogs </h1>
         <div className=" px-2">
-          <BlogFeedPage blogs={blogs} />
+          <IndexPage blogs={blogs}/>
         </div>
       </div>
 
       <div className="container mt-5">
-        <h1 className="text-center heading-index-main">Technology Blogs  <Image src={tech_logo} width={28} height={28}/></h1>
+        <h1 className="text-center heading-index-main">Technology Blogs  </h1>
         <div className="container px-1">
-          <TechPage />
+        <TechCom />
         </div>
       </div>
       <div className="container mt-5">
-        <h1 className="text-center heading-index-main">Gaming Blogs <Image src={game_logo} width={28} height={28}/></h1>
+        <h1 className="text-center heading-index-main">Gaming Blogs</h1>
         <div className="container px-1">
-          <GamingPage />
+          <GameCom/>
         </div>
       </div>
     </div>

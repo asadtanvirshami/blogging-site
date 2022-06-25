@@ -14,7 +14,7 @@ import "slick-carousel/slick/slick-theme.css";
 
 
 
-export const GamingPage = () => {
+export const GameCom = () => {
   const [gameBlogs, setGameBlogs] = useState([]);
 
   useEffect(() => {
@@ -117,4 +117,4 @@ export const GamingPage = () => {
   );
 };
 
-export default GamingPage;
+export default GameCom;

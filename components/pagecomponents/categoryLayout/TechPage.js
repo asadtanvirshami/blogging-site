@@ -7,9 +7,9 @@ import { Form, Col, Button, Row, Card } from "react-bootstrap";
 import parse, { domToReact, htmlToDOM, Element } from "html-react-parser";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart } from "@fortawesome/free-solid-svg-icons";
-import { Recent } from "./Recent";
 
-export const IndexPage = ({ blogs }) => {
+
+export const TechPage = ({ blogs }) => {
   const [bogList, setBlogList] = useState([]);
   const [showMore, setShowMore] = useState(false);
 
@@ -88,4 +88,4 @@ export const IndexPage = ({ blogs }) => {
   );
 };
 
-export default IndexPage;
+export default TechPage;

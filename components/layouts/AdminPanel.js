@@ -63,7 +63,7 @@ export const AdminPanel = () => {
               </Nav>
               <Nav>
                 <button className="logout-btn" onClick={Logout}>
-                  Logout
+                  LOGOUT
                 </button>
                 <Nav.Link href="/profile" style={{ color: "white" }}>
                   Welcome {name}

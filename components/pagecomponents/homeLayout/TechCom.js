@@ -14,7 +14,7 @@ import { Card } from "react-bootstrap";
 
 
 
-export const TechPage = () => {
+export const TechCom = () => {
   const [techBlogs, setTechBlogs] = useState([]);
 
 
@@ -123,4 +123,4 @@ export const TechPage = () => {
 };
 
 
-export default TechPage
+export default TechCom
