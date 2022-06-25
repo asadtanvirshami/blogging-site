@@ -59,11 +59,15 @@ export const Header = ({ data }) => {
                 <Nav.Link className="main-nav-links" href="/contact">
                   Contact Us
                 </Nav.Link>
+                <NavDropdown title="Categories" id="basic-nav-dropdown">
+          <NavDropdown.Item href="/game">Gaming</NavDropdown.Item>
+          <NavDropdown.Item href="/tech">Technology</NavDropdown.Item>
+        </NavDropdown>
               </Nav>
               <Nav>
-                <Nav.Link href="/profile">Welcome new</Nav.Link>
+                <Nav.Link href="/signup">SIGN UP</Nav.Link>
                 <Button className="logout-btn" onClick={Logout}>
-                  login
+                  LOGIN
                 </Button>
               </Nav>
             </Navbar.Collapse>
@@ -94,11 +98,15 @@ export const Header = ({ data }) => {
                 <Nav.Link className="main-nav-links" href="/contact">
                   Contact Us
                 </Nav.Link>
+                <NavDropdown title="Categories" id="basic-nav-dropdown">
+          <NavDropdown.Item href="/game">Gaming</NavDropdown.Item>
+          <NavDropdown.Item href="/tech">Technology</NavDropdown.Item>
+        </NavDropdown>
               </Nav>
               <Nav>
                 <Nav.Link href="/profile">Welcome {name}</Nav.Link>
                 <Button className="logout-btn" onClick={Logout}>
-                  logout
+                  LOGOUT
                 </Button>
               </Nav>
             </Navbar.Collapse>
