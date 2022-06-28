@@ -1,11 +1,12 @@
-import React from 'react'
+import React from "react";
+import { Form } from "react-bootstrap";
 
 export const resetPassword = () => {
   return (
-    <div>
-
-        
+    <div className="container">
+      <div>
+      </div>
     </div>
-  )
-}
-export default resetPassword
+  );
+};
+export default resetPassword;

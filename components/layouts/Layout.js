@@ -13,8 +13,7 @@ const Layout = ({ children, sessionData }) => {
 
   const sign = "/signup"
   const login = "/login"
-  const detail = "/detail"
-
+const reset = "/resetpassword"
 
   if (router.route === login) {
     return (
@@ -34,7 +33,14 @@ const Layout = ({ children, sessionData }) => {
     )
 
 
-  } else{
+  } else if (router.route === reset) {
+    return (
+      <>
+        <>{children}</>
+      
+      </>
+    )
+  }else{
     return(
     <>
       <Header data={sessionData}/>

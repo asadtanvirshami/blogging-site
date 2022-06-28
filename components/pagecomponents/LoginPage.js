@@ -1,10 +1,11 @@
 import React, { useState, useEffect, useContext } from "react";
-import { Form, Button } from "react-bootstrap";
 import Image from "next/image";
 import axios from "axios";
 import CooKies from "js-cookie";
 import Router from "next/router";
 import Cookies from "cookies";
+import { LockOutlined, UserOutlined } from "@ant-design/icons";
+import { Button, Form, Input } from "antd";
 
 export const LoginPage = () => {
   axios.defaults.withCredentials = true;
@@ -12,8 +13,12 @@ export const LoginPage = () => {
   const [passwordLog, setPassword] = useState("");
   const [LoginStatus, setLoginStatus] = useState("");
   const [isLoggedIn, setLoggedIn] = useState("");
-  // sending post req to backend
 
+  const onFinish = (values) => {
+    console.log("Received values of form: ", values);
+  };
+
+  // sending post req to backend
   const Login = (e) => {
     e.preventDefault();
     axios
@@ -50,49 +55,79 @@ export const LoginPage = () => {
       <div className="container ">
         {/* form div */}
         <div className="col-md-12  d-flex justify-content-center ">
-          <Form className="mt-4 login-form px-5 pt-5 pb-5 " onSubmit={Login}>
-            <h1 className="login-lables-heading text-center mb-4">BlogNow</h1>
-            <Form.Group className="mb-3" controlId="formBasicEmail">
-              <Form.Label className="login-lables">Username</Form.Label>
-              <Form.Control
-                type="name"
-                className="form-space"
-                placeholder="Enter email"
+          <Form
+            name="normal_login"
+            className="login-form mt-4 login-form px-5 pt-5 pb-5"
+            initialValues={{
+              remember: true,
+            }}
+            onFinish={onFinish}
+          >
+            <h1 className="login-lables-heading text-center mb-5">Login</h1>
+            <Form.Item
+         
+              name="username"
+              rules={[
+                {
+                  required: true,
+                  message: "Please input your Username!",
+                },
+              ]}
+            >
+              <Input
+                 className="control-login"
+                prefix={<UserOutlined className="site-form-item-icon" />}
+                placeholder="Username"
                 onChange={(e) => {
                   setUserName(e.target.value);
                 }}
               />
-            </Form.Group>
-
-            <Form.Group className="mb-3" controlId="formBasicPassword">
-              <Form.Label className="login-lables">Password</Form.Label>
-              <Form.Control
-                className="form-space"
+            </Form.Item>
+            <Form.Item
+              name="password"
+              rules={[
+                {
+                  required: true,
+                  message: "Please input your Password!",
+                },
+              ]}
+            >
+              <Input
+               className="control-login"
+                prefix={<LockOutlined className="site-form-item-icon" />}
+                type="password"
+                placeholder="Password"
                 onChange={(e) => {
                   setPassword(e.target.value);
                 }}
-                type="password"
-                placeholder="Password"
               />
-            </Form.Group>
-
-            <Button className="login-btn col-md-12 mt-3" type="submit">
-              Login
-            </Button>
-            <div className="text-center">
-              <Form.Text className="">or</Form.Text>
+            </Form.Item>
+            <Form.Item className="text-center">
+              <Button
+                type="primary"
+                onClick={Login}
+                htmlType="submit"
+                className="login-form-button col-md-12 mb-1 mt-3"
+              >
+                Log in
+              </Button>
+              <div className="text-center">
+              <small className="">or</small>
             </div>
-
             <Button
+             type="primary"
+             htmlType="submit"
+             className="createacc-btn col-md-12 mb-3"
               href="/signup"
-              className="createacc-btn col-md-12 mb-2"
-              type="submit"
             >
               Create new account
             </Button>
-            <div className="col-md-12 text-center">
-              <a className="">Forget password?</a>
-            </div>
+              <div className="col-md-12 text-center">
+                <a className="" href="/resetpassword">
+                  Forget password?
+                </a>
+              </div>
+            </Form.Item>
           </Form>
         </div>
       </div>

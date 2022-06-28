@@ -61,7 +61,7 @@ export const IndexPage = ({ blogs }) => {
                       <div className="card-txt">{parse(`${bg.posts.slice(0, 150)}...`)}</div>
                       <div className="row-main  ">
                         <div className="column-user ">
-                          <img className="blog-img-user " src={bg.pfpUser} />
+                          <img className="blog-img-user " src={bg.User.pfp} />
                         </div>
                         <div className="column-user ">
                           <p className="card-txt px-2">

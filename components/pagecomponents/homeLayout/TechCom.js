@@ -85,7 +85,7 @@ export const TechCom = () => {
   return (
     <div className=" slider-div  container">
         <Slider {...settings} className="  ">
-        {techBlogs.map((bg, index) => {
+        {techBlogs.slice(0,4).map((bg, index) => {
           return (
             <div  className="px-2 mt-3 mb-3" key={index}>
                <div className=" main-card-div    ">

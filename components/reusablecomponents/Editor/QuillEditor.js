@@ -14,6 +14,7 @@ export const Editor = ({ blog }, props) => {
   const [category, setCategory] = useState("");
   const [selectedImage, setSelectedImage] = useState("");
   const [cover, setCover] = useState("");
+  const[id, setId] = useState("")
 
   // Quill Editor setting
 
@@ -115,6 +116,7 @@ export const Editor = ({ blog }, props) => {
       .then((res) => {
         setFirst(res.data.user[0].firstname);
         setLast(res.data.user[0].lastname);
+        setId(res.data.user[0].id)
         console.log(res.data);
       })
       .catch((err) => {
@@ -135,6 +137,7 @@ export const Editor = ({ blog }, props) => {
         Category: category,
         pfp: detail,
         cover: cover,
+        userId:id
       })
       .then((res) => {
         console.log(res.data);
