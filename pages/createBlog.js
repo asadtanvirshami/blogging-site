@@ -44,7 +44,10 @@ export const CreateBlogger = ({ sessionData }, props) => {
   return renderData();
 };
 
+
 export default CreateBlogger;
+  
+
 
 export async function getServerSideProps({ req, res }) {
   // Fetch data from external API
