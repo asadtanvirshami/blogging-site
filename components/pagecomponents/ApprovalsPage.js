@@ -61,7 +61,6 @@ export const ApprovalsPage = () => {
           <Form key={i}>
             {/* listed blog api for approval */}
             <Form.Group
-              className=""
               style={{ color: "black" }}
               controlId="formBasicEmail"
             >

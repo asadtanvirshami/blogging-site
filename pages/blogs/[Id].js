@@ -13,8 +13,8 @@ const detail = ({ blog }) => {
     <div className="container ">
       <div>
         <div className="row-main m-auto align-self-center mt-5 mb-5 ">
-          <div className="column-user  ">
-            <img className="blog-user " src={blog.User.pfp} />
+          <div className="column-user">
+            <img className="blog-user" src={blog.User.pfp} />
           </div>
           <div className="column-user-detail m-auto ">
             <ul className="  card-txt-ul">
@@ -38,12 +38,14 @@ const detail = ({ blog }) => {
         </div>
       </div>
       <div className="mt-5">
-        <TechCom />
+        <TechCom/>
       </div>
       <div className="mt-5">
-        <GameCom />
+        <GameCom/>
       </div>
     </div>
+  
+
   );
 };
 
@@ -64,13 +66,14 @@ export const getStaticProps = async ({ params }) => {
 export async function getStaticPaths() {
   const request = await fetch(process.env.NEXT_PUBLIC_FP_GET_APPROVEDS).then(
     (r) => r.json()
-  );
+  ); 
+  
 
   return {
     paths: request.map((blogs) => {
       return {
         params: {
-          id: blogs.id,
+          id: blogs.id.toString(),
         },
       };
     }),
