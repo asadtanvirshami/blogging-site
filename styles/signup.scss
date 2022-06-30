@@ -22,3 +22,31 @@
     box-shadow: none !important;
     border-color: #FC5C65 !important;
 }
+
+
+.confirm-input{
+    width: 260px;
+}
+
+.signup-form-div{
+    margin-top: 200px;
+    margin-bottom: 300px;
+}
+
+.signup-heading{
+    color:#1890ff;
+    font-size: 50px;
+}
+
+
+@media only screen and (max-width: 428px) {
+
+    .signup-form-div{
+        margin-top:0rem !important;
+     
+    
+    }
+
+
+}
+

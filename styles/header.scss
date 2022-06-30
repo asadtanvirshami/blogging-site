@@ -3,6 +3,7 @@
 
 .navbar-main{
 background-color: white!important;
+border-bottom: 1px solid rgb(212, 209, 209);
 }
 
 .logo-name{
@@ -57,4 +58,33 @@ background-color: white!important;
     background-color: transparent !important;
     border-color: transparent !important;
     outline: none !important;
+}
+
+.text-category{
+    color:rgb(57, 112, 214) !important ;
+}
+
+.text-category:hover:after{
+    border-bottom: solid 1px rgb(57, 112, 214) ;
+   
+    cursor: pointer !important;
+    transition-duration: 800ms;
+    transform: scaleX(1) !important;
+    
+}
+
+
+@media only screen and (max-width: 428px) {
+    .main-nav-links{
+        color: rgb(57, 112, 214) !important;
+        font-size: 15px;
+    }
+
+    .signup-btn{
+        text-align: left !important;
+    }
+
+    .logout-btn{
+        text-align: center !important;
+    }
 }

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Container, Form, Button, Image, FormSelect } from "react-bootstrap";
+import { Button, Form, Input, Select } from "antd";
 import axios from "axios";
 import Router from "next/router";
 import Cookies from "cookies";
@@ -41,92 +41,107 @@ export const ContactPage = () => {
         console.log(err);
       });
   }, []);
-  
 
   // const a variable to use map function
 
-  const listItems = type.map((d, index) => (
-    <option className="scr-form dropdown" key={index}>
-      {d.name}
-    </option>
-  ));
+  const formItemLayout = {
+    labelCol: {
+      xs: { span: 24 },
+      sm: { span: 8 },
+    },
+    wrapperCol: {
+      xs: { span: 24 },
+      sm: { span: 16 },
+    },
+  };
+  const tailFormItemLayout = {
+    wrapperCol: {
+      xs: {
+        span: 24,
+        offset: 0,
+      },
+      sm: {
+        span: 16,
+        offset: 8,
+      },
+    },
+  };
 
+  /* eslint-disable no-template-curly-in-string */
 
   return (
     <div>
-      <div className="container   mt-5 row">
-        {/* image div */}
-
-        <div className="image-contact-div mb-5 text-center col-md-6">
-          <Image className="contact-img" />
-        </div>
-
-        {/* form div */}
-
-        <div className=" col-md-6 d-flex justify-content-center  ">
-          <Form onSubmit={contact} className="form-div  ">
-            <h1 className="text-center contact-labels">Contact Us</h1>
-            <Form.Group className="mb-3 " controlId="formBasicEmail">
-              <Form.Label className="contact-labels">Name</Form.Label>
-              <Form.Control
-                type=""
-                className="placholder-space"
-                required
+      <div className="container ">
+        <div className="col-md-12  d-flex justify-content-center signup-form-div">
+          <Form {...formItemLayout} className="login-form mt-4 px-5  pt-5 pb-5">
+            <h1 className="text-center signup-heading mb-5  ">Contact Us</h1>
+            <Form.Item
+              name={["user", "name"]}
+              label="Name"
+              rules={[
+                {
+                  required: true,
+                },
+              ]}
+            >
+              <Input
                 onChange={(e) => {
                   setName(e.target.value);
                 }}
-                placeholder="Enter Name"
               />
-              <Form.Text className="text-muted"></Form.Text>
-            </Form.Group>
-
-            <Form.Group className="mb-3" controlId="formBasicEmail">
-              <Form.Label className="contact-labels">Email address</Form.Label>
-              <Form.Control
-                required
+            </Form.Item>
+            <Form.Item
+              name="email"
+              label="Email"
+              rules={[
+                {
+                  type: "email",
+                },
+              ]}
+            >
+              <Input
                 onChange={(e) => {
                   setEmail(e.target.value);
                 }}
-                className="placholder-space"
-                type="email"
-                placeholder="Enter email"
               />
-              <Form.Text className="" style={{ color: "white" }}>
-                We'll never share your email with anyone else.
-              </Form.Text>
-            </Form.Group>
+            </Form.Item>
 
-            <Form.Group className="mb-3">
-              <Form.Label className="contact-labels">
-                Select Country:
-              </Form.Label>
-              <Form.Select
-                className="scr-form  "
-                required
-                onChange={(e) => {
-                  setCountry(e.target.value);
-                }}
-              >
-                {listItems}
-              </Form.Select>
-            </Form.Group>
+            <Form.Item
+              name="Country"
+              label="Country"
+              rules={[{ required: true, message: "Missing area" }]}
+            >
+              <Select placeholder="Select Country" onChange={setCountry}>
+                {type.map((d, index) => (
+                  <Option className="scr-form dropdown" key={index}>
+                    {d.name}
+                  </Option>
+                ))}
+              </Select>
+            </Form.Item>
 
-            <Form.Group className="mb-3" controlId="formBasicPassword">
-              <Form.Label className="contact-labels">Comment</Form.Label>
-              <Form.Control
-                required
-                className="placholder-space"
-                type="comment"
+            <Form.Item
+              className=""
+              name={["user", "introduction"]}
+              label="Introduction"
+            >
+              <Input.TextArea
+                className="input-contact"
                 onChange={(e) => {
                   setComment(e.target.value);
                 }}
-                placeholder="Comment"
               />
-            </Form.Group>
-
-            <Button className="contact-button col-md-12 " type="submit">
-              Submit
-            </Button>
+            </Form.Item>
+            <Form.Item {...tailFormItemLayout}>
+              <Button
+                type="primary"
+                htmlType="submit"
+                onClick={contact}
+                className="col-md-12"
+              >
+                Submit
+              </Button>
+            </Form.Item>
           </Form>
         </div>
       </div>

@@ -25,6 +25,11 @@
 
 }
 
+.hero-img{
+    height: 1000px!important;
+    width: 3000px;
+}
+
 
 .heading-index-main{
 color:rgb(57, 112, 214) ;
@@ -85,6 +90,13 @@ border-top:solid 1px rgb(235, 228, 228) !important;
     cursor: pointer !important ;
 }
 
+
+@media only screen and (max-width: 600px){
+    .hero-img{
+        height: max-content!important;
+        width: 3000px;
+    }
+}
 
 
 @media only screen and (max-width: 1440px) {

@@ -19,7 +19,7 @@ const reset = "/resetpassword"
     return (
       <>
         <>{children}</>
-  
+        <Footer/>
       </>
 
 
@@ -28,7 +28,7 @@ const reset = "/resetpassword"
     return (
       <>
         <>{children}</>
-      
+        <Footer/>
       </>
     )
 

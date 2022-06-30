@@ -59,13 +59,19 @@ export const Header = ({ data }) => {
                 <Nav.Link className="main-nav-links" href="/contact">
                   Contact Us
                 </Nav.Link>
-                <NavDropdown title="Categories" id="basic-nav-dropdown">
-          <NavDropdown.Item href="/game">Gaming</NavDropdown.Item>
-          <NavDropdown.Item href="/tech">Technology</NavDropdown.Item>
-        </NavDropdown>
+                <NavDropdown
+                  title={
+                    <span className="text-category my-auto">Dropdown</span>
+                  }
+                  className="main-nav-links"
+                  id="basic-nav-dropdown"
+                >
+                  <NavDropdown.Item href="/game">Gaming</NavDropdown.Item>
+                  <NavDropdown.Item href="/tech">Technology</NavDropdown.Item>
+                </NavDropdown>
               </Nav>
               <Nav>
-                <Nav.Link href="/signup">SIGN UP</Nav.Link>
+                <Nav.Link className="signup-btn" href="/signup">SIGN UP</Nav.Link>
                 <Button className="logout-btn" onClick={Logout}>
                   LOGIN
                 </Button>
@@ -98,10 +104,16 @@ export const Header = ({ data }) => {
                 <Nav.Link className="main-nav-links" href="/contact">
                   Contact Us
                 </Nav.Link>
-                <NavDropdown title="Categories" id="basic-nav-dropdown">
-          <NavDropdown.Item href="/game">Gaming</NavDropdown.Item>
-          <NavDropdown.Item href="/tech">Technology</NavDropdown.Item>
-        </NavDropdown>
+                <NavDropdown
+                  title={
+                    <span className="text-category my-auto">Dropdown</span>
+                  }
+                  className="main-nav-links"
+                  id="basic-nav-dropdown"
+                >
+                  <NavDropdown.Item href="/game">Gaming</NavDropdown.Item>
+                  <NavDropdown.Item href="/tech">Technology</NavDropdown.Item>
+                </NavDropdown>
               </Nav>
               <Nav>
                 <Nav.Link href="/profile">Welcome {name}</Nav.Link>
