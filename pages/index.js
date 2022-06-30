@@ -5,8 +5,8 @@ import Image from "next/image";
 import Router from "next/router";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, Scrollbar, A11y } from "swiper";
-import GameCom from "../components/pagecomponents/homeLayout/GameCom";
-import TechCom from "../components/pagecomponents/homeLayout/TechCom";
+import GameCom from "../components/reusablecomponents/GameCom";
+import TechCom from "../components/reusablecomponents/TechCom";
 import IndexPage from "../components/pagecomponents/homeLayout/IndexPage";
 import BlogPagination from "../components/pagecomponents/homeLayout/BlogPagination";
 

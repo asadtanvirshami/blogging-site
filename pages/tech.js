@@ -1,14 +1,14 @@
 import React from 'react'
 import axios from 'axios';
 import TechPage from '../components/pagecomponents/categoryLayout/TechPage';
-import TechCom from '../components/pagecomponents/homeLayout/TechCom';
-import GameCom from '../components/pagecomponents/homeLayout/GameCom';
+import TechCom from '../components/reusablecomponents/TechCom';
+import GameCom from '../components/reusablecomponents/GameCom';
 
 export const Tech = ({blogs}) => {
   return (
     <div className='container'>
        <div className=" mt-5">
-        <h1 className="text-center heading-index-main" >Gaming blogs</h1>
+       <h1 className='text-center heading-index-main'>Technology Blogs</h1>
         <div className=" px-2">
           <TechPage blogs={blogs}/>
         </div>

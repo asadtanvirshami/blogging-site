@@ -46,14 +46,6 @@
 
 }
 
-.ban-h{
-    color: rgb(35, 220, 245) !important;
-    background: linear-gradient(to right, black 19%,  rgb(1, 1, 189) 50%);
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    font-size: 100px;
-}
 
 .ban-span{
     color: black !important;
@@ -79,4 +71,9 @@
     }
     
     
+}
+
+.hero-img{
+    max-height: 3000px!important;
+    max-width: 2000px;
 }

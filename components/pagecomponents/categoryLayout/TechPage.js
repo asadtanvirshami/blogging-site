@@ -53,8 +53,8 @@ export const TechPage = ({ blogs }) => {
     }
     return (
       <div className=" mt-5   ">
-        <div className=" d-flex">
-          <Row className="m-auto  blog-main-page align-self-center">
+        <div className=" d-flex justify-content-center">
+          <Row className="m-auto  blog-main-page ">
             <Col className="wrapper container mt-3">
               <Fragment>
                 {bogList.map((bg, index) => {

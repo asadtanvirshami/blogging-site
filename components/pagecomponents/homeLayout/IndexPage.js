@@ -7,7 +7,7 @@ import { Spinner, Col, Row, Card } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart } from "@fortawesome/free-solid-svg-icons";
 import parse, { domToReact, htmlToDOM, Element } from "html-react-parser";
-import { Recent } from "./Recent";
+
 
 export const IndexPage = ({ blogs }) => {
   const [bogList, setBlogList] = useState([]);

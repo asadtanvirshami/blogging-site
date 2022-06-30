@@ -1,14 +1,15 @@
 import React from 'react'
 import GamePage from '../components/pagecomponents/categoryLayout/GamePage';
 import axios from 'axios';
-import GameCom from '../components/pagecomponents/homeLayout/GameCom';
-import TechCom from '../components/pagecomponents/homeLayout/TechCom';
+import GameCom from '../components/reusablecomponents/GameCom';
+import TechCom from '../components/reusablecomponents/TechCom';
 
 export const Game = ({blogs}) => {
   return (
     <div className='container'>
          <div className=" mt-5">
         <div className=" px-2">
+          <h1 className='text-center heading-index-main'>Gaming Blogs</h1>
           <GamePage blogs={blogs}/>
         </div>
       </div>

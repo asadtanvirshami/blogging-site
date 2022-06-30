@@ -5,8 +5,8 @@ import moment from "moment";
 import { Typography } from "antd";
 import { useRouter } from "next/router";
 import parse, { domToReact, htmlToDOM, Element } from "html-react-parser";
-import TechCom from "../../components/pagecomponents/homeLayout/TechCom";
-import GameCom from "../../components/pagecomponents/homeLayout/GameCom";
+import TechCom from "../../components/reusablecomponents/TechCom";
+import GameCom from "../../components/reusablecomponents/GameCom";
 
 const detail = ({ blog }) => {
   return (

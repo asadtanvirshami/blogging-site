@@ -1,32 +1,32 @@
 import React, { useEffect, useState } from "react";
-import axios from "axios";
 import moment from "moment";
-import Slider from "react-slick";
-import Link from "next/link";
+import axios from "axios";
 import parse, { domToReact, htmlToDOM, Element } from "html-react-parser";
-import { Spinner } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart } from "@fortawesome/free-solid-svg-icons";
-import { Card } from "react-bootstrap";
+import { Card, Spinner } from "react-bootstrap";
+import { red } from "@mui/material/colors";
+import Link from "next/link";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
-export const TechCom = () => {
-  const [techBlogs, setTechBlogs] = useState([]);
+export const GameCom = () => {
+  const [gameBlogs, setGameBlogs] = useState([]);
   const [load, setLoad] = useState([false]);
 
-
-  useEffect(() => {
-    let res = axios
-      .get(process.env.NEXT_PUBLIC_FP_TECH_BLOGS, {})
+  useEffect(async() => {
+    let res = await axios.get(process.env.NEXT_PUBLIC_FP_GAME_BLOGS)
 
       .then((res) => {
-        setTechBlogs(res.data);
-        setLoad(false)
+        setGameBlogs(res.data);
+        setLoad(false);
       })
       .catch((err) => {
         console.log(err);
       });
   }, []);
-  console.log(techBlogs);
+  console.log(gameBlogs);
 
   function SampleNextArrow(props) {
     const { className, style, onClick } = props;
@@ -50,15 +50,13 @@ export const TechCom = () => {
     );
   }
 
-  const settings = {
+  let settings = {
     dots: true,
     infinite: false,
-    slidesToShow: 2,
     speed: 500,
-    centerPadding: "20px",
+    slidesToShow: 2,
+    centerPadding: "15px",
     autoPlay: false,
-    useTransform: false,
-
     responsive: [
       {
         breakpoint: 600,
@@ -84,14 +82,14 @@ export const TechCom = () => {
       );
     }
     return (
-      <div className=" slider-div  container">
-        <Slider {...settings} className="  ">
-          {techBlogs.slice(0, 4).map((bg, index) => {
+      <div className="slider-div  container">
+        <Slider {...settings} className=" ">
+          {gameBlogs.slice(0, 4).map((bg, index) => {
             return (
               <div className="px-2 mt-3 mb-3" key={index}>
-                <div className=" main-card-div    ">
+                <div className=" main-card-div">
                   <Link href={"/blogs/" + bg.id} key={bg.id}>
-                    <Card className="slider-card  ">
+                    <Card className="slider-card ">
                       <img className="blog-img img-fluid" src={bg.blogcover} />
                       <Card.Body className="px-3 pt-4">
                         <Card.Title className="text-heading">
@@ -107,7 +105,7 @@ export const TechCom = () => {
                           <div className="column-user ">
                             <p className="card-txt px-2">
                               {bg.postedBy} <br />
-                              <p>Posted {moment(bg.createdAt).fromNow()}</p>
+                              Posted {moment(bg.createdAt).fromNow()}
                             </p>
                           </div>
                         </div>
@@ -129,4 +127,4 @@ export const TechCom = () => {
   return renderData();
 };
 
-export default TechCom;
+export default GameCom;
