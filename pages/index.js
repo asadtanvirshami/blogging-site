@@ -74,12 +74,12 @@ const paginate = pageNumbers => setCurrent(pageNumbers);
 
 export default Index;
 
-export async function  getStaticProps({ req, res }) {
-  const request = await fetch(process.env.NEXT_PUBLIC_FP_GET_APPROVEDS)
-  .then((r) => r.json());
+export async function  getServerSideProps({ req, res }) {
+  const request = await axios.get(process.env.NEXT_PUBLIC_FP_GET_APPROVEDS)
+  
 
   console.log(request);
-  const blogs = await request;
+  const blogs = await request.data;
 
   // Pass data to the page via props
   return {
