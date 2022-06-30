@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Button, Form, Input, Select } from "antd";
+import { Button, Form, Input, Select,Option } from "antd";
 import axios from "axios";
 import Router from "next/router";
 import Cookies from "cookies";
@@ -113,9 +113,9 @@ export const ContactPage = () => {
             >
               <Select placeholder="Select Country" onChange={setCountry}>
                 {type.map((d, index) => (
-                  <Option className="scr-form dropdown" key={index}>
+                  <option className="scr-form dropdown" key={index}>
                     {d.name}
-                  </Option>
+                  </option>
                 ))}
               </Select>
             </Form.Item>

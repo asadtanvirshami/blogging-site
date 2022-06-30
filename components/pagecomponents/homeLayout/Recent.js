@@ -12,8 +12,7 @@ export const Recent = ({ recent }) => {
   const [recentBLOG, setRecent] = useState([]);
   useEffect(() => {
     let res = axios
-      .get(process.env.NEXT_PUBLIC_FP_RECENT_BLOGS, {
-      })
+      .get(process.env.NEXT_PUBLIC_FP_RECENT_BLOGS, {})
 
       .then((res) => {
         setRecent(res.data);
@@ -25,7 +24,6 @@ export const Recent = ({ recent }) => {
   }, []);
   console.log(recentBLOG);
 
-  
   return (
     <div className=" mt-5 container   ">
       <div className=" ">
@@ -33,10 +31,12 @@ export const Recent = ({ recent }) => {
         {recentBLOG.slice(0, 1).map((bg, index) => {
           return (
             <div key={index} className="   ">
-              <Card  className="cards ">
+              <Card className="cards ">
                 <img className="blog-img img-fluid" src={bg.blogcover} />
                 <Card.Body>
-                  <Card.Title className="text-heading">{bg.blogtitle}</Card.Title>
+                  <Card.Title className="text-heading">
+                    {bg.blogtitle}
+                  </Card.Title>
                   <Card.Text className="card-txt">
                     {parse(`${bg.posts.slice(0, 160)}...`)}
                     <a>Readmore</a>
@@ -63,4 +63,4 @@ export const Recent = ({ recent }) => {
   );
 };
 
-export default Recent
+export default Recent;

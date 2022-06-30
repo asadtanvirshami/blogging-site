@@ -4,7 +4,6 @@ import Cookies from "js-cookie";
 import axios from "axios";
 
 export const ProfilePage = ({ info }) => {
-
   const [bioReg, setBioReg] = useState("");
   const [eduReg, setEduReg] = useState("");
   const [userReg, setUserReg] = useState("");
@@ -15,14 +14,10 @@ export const ProfilePage = ({ info }) => {
   const [selectedImage, setSelectedImage] = useState("");
   const [type, setType] = useState([]);
 
-
-
   useEffect(() => {
     setDetail(info);
     console.log(info);
   }, [detail]);
-
-  
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -35,8 +30,8 @@ export const ProfilePage = ({ info }) => {
     formData.append("upload_preset", "coverPics");
 
     await fetch("https://api.cloudinary.com/v1_1/dwuzocatf/image/upload", {
-      "method":"post",
-     "body":formData
+      method: "post",
+      body: formData,
     })
       .then((resp) => resp.json())
       .then((data) => {
@@ -56,7 +51,7 @@ export const ProfilePage = ({ info }) => {
 
   const update = (e) => {
     e.preventDefault();
-     axios
+    axios
       .post(process.env.NEXT_PUBLIC_FP_UPDATE_USERSINFO, {
         username: `${Cookies.get("user")}`,
         update_user: userReg,
@@ -70,8 +65,6 @@ export const ProfilePage = ({ info }) => {
       });
   };
 
-
-
   return (
     <div>
       <Modal show={show} onHide={handleClose}>
@@ -79,7 +72,7 @@ export const ProfilePage = ({ info }) => {
           <Modal.Title>Setting</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <Form  onSubmit={update}>
+          <Form onSubmit={update}>
             <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
               <Form.Label>Username</Form.Label>
               <Form.Control

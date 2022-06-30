@@ -8,7 +8,6 @@ import { LockOutlined, UserOutlined } from "@ant-design/icons";
 import { Button, Form, Input } from "antd";
 
 export const LoginPage = () => {
-  
   axios.defaults.withCredentials = true;
   const [userLog, setUserName] = useState("");
   const [passwordLog, setPassword] = useState("");
@@ -66,7 +65,6 @@ export const LoginPage = () => {
           >
             <h1 className="login-lables-heading text-center mb-5">Login</h1>
             <Form.Item
-         
               name="username"
               rules={[
                 {
@@ -76,7 +74,7 @@ export const LoginPage = () => {
               ]}
             >
               <Input
-                 className="control-login"
+                className="control-login"
                 prefix={<UserOutlined className="site-form-item-icon" />}
                 placeholder="Username"
                 onChange={(e) => {
@@ -94,7 +92,7 @@ export const LoginPage = () => {
               ]}
             >
               <Input
-               className="control-login"
+                className="control-login"
                 prefix={<LockOutlined className="site-form-item-icon" />}
                 type="password"
                 placeholder="Password"
@@ -113,16 +111,16 @@ export const LoginPage = () => {
                 Log in
               </Button>
               <div className="text-center">
-              <small className="">or</small>
-            </div>
-            <Button
-             type="primary"
-             htmlType="submit"
-             className="createacc-btn col-md-12 mb-3"
-              href="/signup"
-            >
-              Create new account
-            </Button>
+                <small className="">or</small>
+              </div>
+              <Button
+                type="primary"
+                htmlType="submit"
+                className="createacc-btn col-md-12 mb-3"
+                href="/signup"
+              >
+                Create new account
+              </Button>
               <div className="col-md-12 text-center">
                 <a className="" href="/resetpassword">
                   Forget password?

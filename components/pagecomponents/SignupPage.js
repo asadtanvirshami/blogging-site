@@ -211,6 +211,7 @@ export const SignupPage = () => {
                 type="primary"
                 htmlType="submit"
                 className="col-md-12 mt-3"
+                onClick={register}
               >
                 Register
               </Button>
