@@ -75,9 +75,7 @@ const paginate = pageNumbers => setCurrent(pageNumbers);
 export default Index;
 
 export async function  getServerSideProps({ req, res }) {
-  const request = await fetch(process.env.NEXT_PUBLIC_FP_GET_APPROVEDS, {
-    method: 'GET',
-   })
+  const request = await fetch(process.env.NEXT_PUBLIC_FP_GET_APPROVEDS)
   .then((r) => r.json());
 
   console.log(request);
