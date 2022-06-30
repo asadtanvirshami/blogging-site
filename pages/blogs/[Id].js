@@ -53,7 +53,7 @@ export default detail;
 
 export const getStaticProps = async ({ params }) => {
   let request = await fetch(
-    `${process.env.NEXT_PUBLIC_FP_GET_BLOGSBYID}${params.id}`
+    `${process.env.NEXT_PUBLIC_FP_GET_BLOGSBYID}${params.Id}`
   ).then((r) => r.json());
 
   console.log(request);
@@ -73,7 +73,7 @@ export async function getStaticPaths() {
     paths: request.map((blogs) => {
       return {
         params: {
-          id: blogs.id.toString(),
+          Id: blogs.id.toString(),
         },
       };
     }),
