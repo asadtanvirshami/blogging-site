@@ -16,14 +16,28 @@ import "swiper/css/pagination";
 import "swiper/css/scrollbar";
 
 // eslint-disable-next-line react/display-name
-const Index = ({ blogs, user }) => {
+const Index = ({ blogs }) => {
+
+  const [BLOGS, setBLOG] = useState([]);  
+  const [currentC, setCurrent] = useState(1);
+
+useEffect(() => {
+  setBLOG(blogs)
+}, [BLOGS])
 
 
+  const [page] = useState(20);
   axios.defaults.withCredentials = true;
   const router = Router;
 
-// Change page
-const paginate = pageNumbers => setCurrent(pageNumbers);
+     // Get current posts
+     const indexOfLastBlogs = currentC * page;
+     const indexOfFirstBlogs = indexOfLastBlogs - page;
+     const currentBlogs = BLOGS.slice(indexOfFirstBlogs, indexOfLastBlogs);
+   
+     // Change page
+     const paginate = pageNumbers => setCurrent(pageNumbers);
+
 
 
   return (
@@ -47,12 +61,12 @@ const paginate = pageNumbers => setCurrent(pageNumbers);
       <div className=" mt-5">
         <h1 className="text-center heading-index-main" >All Blogs</h1>
         <div className=" px-2">
-          <IndexPage  blogs={ blogs } user={user}/>
-          {/* <BlogPagination
+          <IndexPage  blogs={ currentBlogs }/>
+          <BlogPagination
            page={page}
            totalBlogs={blogs.length}
            paginate={paginate}
-            /> */}
+            />
         </div>
       </div>
 

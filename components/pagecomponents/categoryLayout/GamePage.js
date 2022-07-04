@@ -75,10 +75,7 @@ export const GamePage = ({ blogs }) => {
                             </div>
                             <div className="row-main  ">
                               <div className="column-user ">
-                                <img
-                                  className="blog-img-user "
-                                  src={bg.pfpUser}
-                                />
+                                
                               </div>
                               <div className="column-user ">
                                 <p className="card-txt px-2">

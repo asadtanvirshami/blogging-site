@@ -6,7 +6,7 @@ import Router from "next/router";
 import { Spinner } from "react-bootstrap";
 import { YourBlogsPage } from "../components/pagecomponents/YourBlogsPage";
 
-export const YourBlogs = ({ sessionData }) => {
+export const YourBlogs = ({ sessionData, blogs }) => {
   const [load, setLoad] = useState([false]);
 
   useEffect(() => {
@@ -26,7 +26,7 @@ export const YourBlogs = ({ sessionData }) => {
     }
     return (
       <div className="container pt-5">
-        <YourBlogsPage />
+        <YourBlogsPage blogs={blogs} />
       </div>
     );
   };
@@ -52,8 +52,17 @@ export async function getServerSideProps({ req, res }) {
   console.log(value);
   const sessionData = await value;
 
+  const request = await fetch(process.env.NEXT_PUBLIC_FP_POST_BLOGBY, {
+    headers: {
+      username: `${cookies.get("user")}`,
+    },
+  }).then((r) => r.json());
+
+  console.log(request);
+  const blogs = await request;
+
   // Pass data to the page via props
   return {
-    props: { sessionData: sessionData },
+    props: { sessionData: sessionData, blogs: blogs || null },
   };
 }

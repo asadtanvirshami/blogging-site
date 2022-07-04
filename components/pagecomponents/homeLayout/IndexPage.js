@@ -8,7 +8,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart } from "@fortawesome/free-solid-svg-icons";
 import parse, { domToReact, htmlToDOM, Element } from "html-react-parser";
 
-
 export const IndexPage = ({ blogs }) => {
   const [bogList, setBlogList] = useState([]);
   const [showMore, setShowMore] = useState(false);
@@ -18,6 +17,8 @@ export const IndexPage = ({ blogs }) => {
     setBlogList(blogs);
     setLoad(false);
   }, [bogList]);
+
+
 
   const likeLog = async (id, i) => {
     let like = false;

@@ -1,8 +1,6 @@
-import React, { useState, useEffect } from "react";
-import { Button, Form, Input, Select,Option } from "antd";
-import axios from "axios";
-import Router from "next/router";
-import Cookies from "cookies";
+import React, { useState, useRef } from "react";
+import { Button, Form, Row, Col } from "react-bootstrap";
+import emailjs from "@emailjs/browser";
 
 // eslint-disable-next-line react/display-name
 export const ContactPage = () => {
@@ -13,135 +11,84 @@ export const ContactPage = () => {
 
   // sending post req to backend
 
-  const contact = (e) => {
+  const form = useRef();
+
+  const sendEmail = (e) => {
     e.preventDefault();
-    axios
-      .post(process.env.NEXT_PUBLIC_FP_POST_CONTACT, {
-        name: name,
-        email: email,
-        country: country,
-        comment: comment,
-      })
-      .then((x) => console.log(x.data));
+
+    emailjs
+      .sendForm(
+        "blognow",
+        "template_5nywv2p",
+        form.current,
+        "AjWOPAYfBXb_5zm6y"
+      )
+      .then(
+        (result) => {
+          console.log(result.text);
+        },
+        (error) => {
+          console.log(error.text);
+        }
+      );
   };
-
-  // using useEffect to get country apis
-
-  const [type, setType] = useState([]);
-
-  useEffect(() => {
-    let res = axios
-      .get("https://restcountries.com/v2/all")
-
-      .then((res) => {
-        setType(res.data);
-        console.log(res.data);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  }, []);
-
-  // const a variable to use map function
-
-  const formItemLayout = {
-    labelCol: {
-      xs: { span: 24 },
-      sm: { span: 8 },
-    },
-    wrapperCol: {
-      xs: { span: 24 },
-      sm: { span: 16 },
-    },
-  };
-  const tailFormItemLayout = {
-    wrapperCol: {
-      xs: {
-        span: 24,
-        offset: 0,
-      },
-      sm: {
-        span: 16,
-        offset: 8,
-      },
-    },
-  };
-
-  /* eslint-disable no-template-curly-in-string */
 
   return (
     <div>
       <div className="container ">
         <div className="col-md-12  d-flex justify-content-center signup-form-div">
-          <Form {...formItemLayout} className="login-form mt-4 px-5  pt-5 pb-5">
+          <Form
+            className=" mt-4 login-form px-5 pt-5 pb-5"
+            ref={form}
+            onSubmit={sendEmail}
+          >
             <h1 className="text-center signup-heading mb-5  ">Contact Us</h1>
-            <Form.Item
-              name={["user", "name"]}
-              label="Name"
-              rules={[
-                {
-                  required: true,
-                },
-              ]}
-            >
-              <Input
-                onChange={(e) => {
-                  setName(e.target.value);
-                }}
-              />
-            </Form.Item>
-            <Form.Item
-              name="email"
-              label="Email"
-              rules={[
-                {
-                  type: "email",
-                },
-              ]}
-            >
-              <Input
-                onChange={(e) => {
-                  setEmail(e.target.value);
-                }}
-              />
-            </Form.Item>
+            <Row className="mb-3">
+              <Form.Group as={Col} controlId="formGridEmail">
+                <Form.Label>First Name</Form.Label>
+                <Form.Control
+                  type="text"
+                  placeholder="First Name"
+                  name="user_first"
+                />
+              </Form.Group>
 
-            <Form.Item
-              name="Country"
-              label="Country"
-              rules={[{ required: true, message: "Missing area" }]}
-            >
-              <Select placeholder="Select Country" onChange={setCountry}>
-                {type.map((d, index) => (
-                  <option className="scr-form dropdown" key={index}>
-                    {d.name}
-                  </option>
-                ))}
-              </Select>
-            </Form.Item>
-
-            <Form.Item
-              className=""
-              name={["user", "introduction"]}
-              label="Introduction"
-            >
-              <Input.TextArea
-                className="input-contact"
-                onChange={(e) => {
-                  setComment(e.target.value);
-                }}
+              <Form.Group as={Col} controlId="formGridPassword">
+                <Form.Label>Last Name</Form.Label>
+                <Form.Control
+                  type="text"
+                  placeholder="Last Name"
+                  name="user_last"
+                />
+              </Form.Group>
+            </Row>
+            <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+              <Form.Label>Email address</Form.Label>
+              <Form.Control
+                type="email"
+                placeholder="name@example.com"
+                name="user_email"
               />
-            </Form.Item>
-            <Form.Item {...tailFormItemLayout}>
-              <Button
-                type="primary"
-                htmlType="submit"
-                onClick={contact}
-                className="col-md-12"
-              >
-                Submit
-              </Button>
-            </Form.Item>
+            </Form.Group>
+            <Form.Group as={Col} controlId="formGridState">
+              <Form.Label>Subject</Form.Label>
+              <Form.Select defaultValue="Choose..." name="user_select">
+                <option>Help</option>
+                <option>Support</option>
+                <option>Queries</option>
+                <option>Other</option>
+              </Form.Select>
+            </Form.Group>
+            <Form.Group
+              className="mb-3 mt-2"
+              controlId="exampleForm.ControlTextarea1"
+            >
+              <Form.Label>Comment</Form.Label>
+              <Form.Control as="textarea" name="message" rows={3} />
+            </Form.Group>
+            <Button type="submit" value="Send">
+              Submit
+            </Button>
           </Form>
         </div>
       </div>

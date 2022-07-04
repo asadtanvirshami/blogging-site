@@ -1,5 +1,9 @@
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
+import axios from "axios";
+import Cookies from "js-cookie";
+import Link from "next/link";
+import { useRouter } from "next/router";
 import {
   Navbar,
   Nav,
@@ -8,11 +12,9 @@ import {
   Button,
   NavItem,
 } from "react-bootstrap";
-import { useRouter } from "next/router";
-import Cookies from "js-cookie";
-import axios from "axios";
+
 import AdminPanel from "./AdminPanel";
-import Link from "next/link";
+
 
 export const Header = ({ data }) => {
   const router = useRouter();
@@ -23,7 +25,7 @@ export const Header = ({ data }) => {
   useEffect(() => setName(Cookies.get("user")), []);
   useEffect(() => setRole(Cookies.get("isAdmin")), []);
 
-  const Logout = async (e) => {
+  const Logout =  () => {
     Cookies.remove("token");
     Cookies.remove("user");
     Cookies.remove("isAdmin");
@@ -72,9 +74,9 @@ export const Header = ({ data }) => {
               </Nav>
               <Nav>
                 <Nav.Link className="signup-btn" href="/signup">SIGN UP</Nav.Link>
-                <Button className="logout-btn" onClick={Logout}>
+                <Nav.Link className="logout-btn" href="/login" >
                   LOGIN
-                </Button>
+                </Nav.Link>
               </Nav>
             </Navbar.Collapse>
           </Container>
@@ -111,8 +113,8 @@ export const Header = ({ data }) => {
                   className="main-nav-links"
                   id="basic-nav-dropdown"
                 >
-                  <NavDropdown.Item href="/game">Gaming</NavDropdown.Item>
-                  <NavDropdown.Item href="/tech">Technology</NavDropdown.Item>
+                  <NavDropdown.Item className="main-nav-links" href="/game">Gaming</NavDropdown.Item>
+                  <NavDropdown.Item className="main-nav-links" href="/tech">Technology</NavDropdown.Item>
                 </NavDropdown>
               </Nav>
               <Nav>

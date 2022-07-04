@@ -5,27 +5,15 @@ import moment from "moment";
 import { Form, Spinner } from "react-bootstrap";
 import parse, { domToReact, htmlToDOM, Element } from "html-react-parser";
 
-export const YourBlogsPage = () => {
+export const YourBlogsPage = ({ blogs }) => {
   const [Aprv, setAprv] = useState([]);
   const [search, setSearch] = useState("");
   const [load, setLoad] = useState([false]);
 
   useEffect(() => {
-    let res = axios
-      .get(process.env.NEXT_PUBLIC_FP_POST_BLOGBY, {
-        headers: {
-          username: `${Cookies.get("user")}`,
-        },
-      })
-      .then((res) => {
-        setAprv(res.data.blogs);
-        setLoad(false);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  }, []);
-  console.log(Aprv);
+    setAprv(blogs);
+    setLoad(false);
+  }, [Aprv]);
 
   const inputHandler = (e) => {
     setSearch(e.target.value);
@@ -69,7 +57,7 @@ export const YourBlogsPage = () => {
     ) : (
       <>
         <div className="empty">
-          <h3>You Currently have no Blogs</h3>
+          <h3>You Currently have no Blogs </h3>
         </div>
       </>
     );

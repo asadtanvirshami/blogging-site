@@ -15,9 +15,8 @@ export const GameCom = () => {
   const [gameBlogs, setGameBlogs] = useState([]);
   const [load, setLoad] = useState([false]);
 
-  useEffect(async() => {
-    let res = await axios.get(process.env.NEXT_PUBLIC_FP_GAME_BLOGS)
-
+  useEffect(() => {
+    let res =  axios.get(process.env.NEXT_PUBLIC_FP_GAME_BLOGS)
       .then((res) => {
         setGameBlogs(res.data);
         setLoad(false);
@@ -100,7 +99,7 @@ export const GameCom = () => {
                         </div>
                         <div className="row-main  ">
                           <div className="column-user ">
-                            <img className="blog-img-user " src={bg.pfpUser} />
+                          
                           </div>
                           <div className="column-user ">
                             <p className="card-txt px-2">

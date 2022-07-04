@@ -13,14 +13,13 @@ export const TechCom = () => {
   const [techBlogs, setTechBlogs] = useState([]);
   const [load, setLoad] = useState([false]);
 
-
-  useEffect(() => {
-    let res = axios
+  useEffect( () => {
+    let res =  axios
       .get(process.env.NEXT_PUBLIC_FP_TECH_BLOGS)
 
       .then((res) => {
         setTechBlogs(res.data);
-        setLoad(false)
+        setLoad(false);
       })
       .catch((err) => {
         console.log(err);
