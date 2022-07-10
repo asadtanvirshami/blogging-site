@@ -1,20 +1,7 @@
-import {React,useEffect,useState} from "react";
-import axios from "axios";
-import { Form } from "react-bootstrap";
+import React from 'react'
 
-export const resetPassword = () => {
-  
-  useEffect(() => {
-    let req = axios.get(process.env.NEXT_PUBLIC_FP_PAGINATED_BLOGS).then((x)=>{
-     console.log(x.data)
-    })
-   }, [])
-   
+export const resetpassword = () => {
   return (
-    <div className="container">
-      <div>
-      </div>
-    </div>
-  );
-};
-export default resetPassword;
+    <div>resetpassword</div>
+  )
+}

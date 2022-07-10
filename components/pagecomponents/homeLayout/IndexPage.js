@@ -1,115 +1,80 @@
 import React, { useEffect, useState, Fragment } from "react";
+import ReactPaginate from 'react-paginate';
+import { Spinner } from "react-bootstrap";
+import BlogsCom from "./BlogsCom";
 import axios from "axios";
-import moment from "moment";
-import Image from "next/image";
-import Link from "next/link";
-import { Spinner, Col, Row, Card } from "react-bootstrap";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faHeart } from "@fortawesome/free-solid-svg-icons";
-import parse, { domToReact, htmlToDOM, Element } from "html-react-parser";
 
-export const IndexPage = ({ blogs }) => {
-  const [bogList, setBlogList] = useState([]);
-  const [showMore, setShowMore] = useState(false);
-  const [load, setLoad] = useState([false]);
+ const IndexPage = () => {
+  
+  
+  const [BLOGS, setBLOG] = useState([]);  
+  const [currentC, setCurrent] = useState(3);
+  const [page] = useState(6);
+
 
   useEffect(() => {
-    setBlogList(blogs);
-    setLoad(false);
-  }, [bogList]);
+
+
+   const getBlogs = async()=>{
+    const res = await fetch(`${process.env.NEXT_PUBLIC_FP_PAGINATED_BLOGS}?page=1&limit=6`).then((r) => r.json());
+    const data = await res
+    setBLOG(data.blogs)
+   
+   }
+getBlogs();
+    
+   }, []);
+
+   console.log(BLOGS)
+
+   const fetchBlogs = async (currentPage)=>{
+    const res = await fetch(
+      `${process.env.NEXT_PUBLIC_FP_PAGINATED_BLOGS}?page=${currentPage}&limit=6`
+      
+    ).then((r) => r.json());
+       
+    const data = await res
+    return data.blogs
+   }
+
+   const handlePageClick =async (data) =>{
+     console.log(data.selected)
+
+     let currentPage=data.selected+1
+     const blogsFromDatabase = await fetchBlogs(currentPage)
+     setBLOG(blogsFromDatabase)
+   }
 
 
 
-  const likeLog = async (id, i) => {
-    let like = false;
-    // parse an array to find likes in local storage
+     
 
-    if (like) {
-      // do nothibng
-    } else {
-      await axios
-        .post(process.env.NEXT_PUBLIC_FP_LIKE_BLOGS, { id: id })
-        .then((x) => {
-          console.log(x.status);
-          if (x.status === 200) {
-            let tempState = [...bogList];
-            tempState.forEach((x, index) => {
-              if (index === i) {
-                x.likes = x.likes + 1;
-                console.log(x.likes);
-              }
-            });
-            setBlogList(tempState);
-          }
-        });
-    }
-  };
-
-  const renderData = () => {
-    if (load != false) {
-      return (
-        <div className="ld text-center mt-5">
-          <Spinner animation="border" variant="info" />
-        </div>
-      );
-    }
     return (
       <div className=" mt-5   ">
-        <div className=" d-flex">
-          <Row className="m-auto  blog-main-page align-self-center">
-            <Col className="wrapper container mt-3">
-              <Fragment>
-                {bogList.map((bg, index) => {
-                  return (
-                    <div key={index} className=" main-card-div    ">
-                      <Link href={"/blogs/" + bg.id} key={bg.id}>
-                        <Card className="cards ">
-                          <img
-                            className="blog-img img-fluid"
-                            src={bg.blogcover}
-                          />
-                          <Card.Body className="px-3 pt-4">
-                            <Card.Title className="text-heading">
-                              {bg.blogtitle}
-                            </Card.Title>
-                            <div className="card-txt">
-                              {parse(`${bg.posts.slice(0, 150)}...`)}
-                            </div>
-                            <div className="row-main  ">
-                              <div className="column-user ">
-                                <img
-                                  className="blog-img-user "
-                                  src={bg.User.pfp}
-                                />
-                              </div>
-                              <div className="column-user ">
-                                <p className="card-txt px-2">
-                                  {bg.postedBy} <br />
-                                  Posted {moment(bg.createdAt).fromNow()}
-                                </p>
-                              </div>
-                            </div>
-                            <span style={{ float: "right" }}>
-                              <FontAwesomeIcon
-                                icon={faHeart}
-                                className="like"
-                              />
-                              <b className="likes-count">{bg.likes}</b>
-                            </span>
-                          </Card.Body>
-                        </Card>
-                      </Link>
-                    </div>
-                  );
-                })}
-              </Fragment>
-            </Col>
-          </Row>
+        <div className=" ">
+          <BlogsCom blogs={ BLOGS }/>
         </div>
+        <ReactPaginate
+        breakLabel="..."
+        nextLabel=">"
+        onPageChange={handlePageClick}
+        pageRangeDisplayed={1}
+        pageCount={3}
+        previousLabel="<"
+        renderOnZeroPageCount={null}
+        containerClassName={"pagination justify-content-center mt-3"}
+        pageClassName={"page-item"}
+        pageLinkClassName={"page-link"}
+        previousLinkClassName={"page-link"}
+        nextLinkClassName={"page-link"}
+        breakLinkClassName={"page-link"}
+        activeClassName={"active"}
+      
+      />
+
       </div>
     );
   };
-  return renderData();
-};
+ 
 
 export default IndexPage;

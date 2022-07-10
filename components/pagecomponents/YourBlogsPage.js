@@ -42,6 +42,10 @@ export const YourBlogsPage = ({ blogs }) => {
           }).map((bit, index) => {
             return (
               <div className="container" key={index}>
+                <div>
+                <div></div>
+                <div></div>
+                </div>
                 <h3>{bit.blogtitle}</h3>
                 <p> {parse(`${bit.posts}`)}</p>
                 <Form.Text muted>
