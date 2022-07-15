@@ -8,38 +8,35 @@ import axios from "axios";
   
   
   const [BLOGS, setBLOG] = useState([]);  
-  const [currentC, setCurrent] = useState(3);
-  const [page] = useState(6);
+  const [load, setLoad] = useState([false]);
+
 
 
   useEffect(() => {
 
 
    const getBlogs = async()=>{
-    const res = await fetch(`${process.env.NEXT_PUBLIC_FP_PAGINATED_BLOGS}?page=1&limit=6`).then((r) => r.json());
-    const data = await res
+    const res = await fetch(`${process.env.NEXT_PUBLIC_FP_PAGINATED_BLOGS}?page=1&limit=6`).then((r) => r.json(setLoad(false)) );
+    const data = await res;
     setBLOG(data.blogs)
-   
+ 
    }
 getBlogs();
     
    }, []);
-
    console.log(BLOGS)
 
    const fetchBlogs = async (currentPage)=>{
     const res = await fetch(
       `${process.env.NEXT_PUBLIC_FP_PAGINATED_BLOGS}?page=${currentPage}&limit=6`
-      
     ).then((r) => r.json());
-       
     const data = await res
+    
     return data.blogs
    }
 
    const handlePageClick =async (data) =>{
      console.log(data.selected)
-
      let currentPage=data.selected+1
      const blogsFromDatabase = await fetchBlogs(currentPage)
      setBLOG(blogsFromDatabase)
@@ -48,7 +45,14 @@ getBlogs();
 
 
      
-
+   const renderData = () => {
+    if (load != false) {
+      return (
+        <div className="ld text-center mt-5">
+          <Spinner animation="border" variant="info" />
+        </div>
+      );
+    }
     return (
       <div className=" mt-5   ">
         <div className=" ">
@@ -75,6 +79,8 @@ getBlogs();
       </div>
     );
   };
+  return renderData();
+};
  
 
 export default IndexPage;

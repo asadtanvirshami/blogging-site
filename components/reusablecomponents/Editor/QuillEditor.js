@@ -89,7 +89,6 @@ export const Editor = ({ blog }, props) => {
       });
   };
 
-
   useEffect(() => {
     let res = axios
       .get(process.env.NEXT_PUBLIC_FP_GET_USERS, {
@@ -102,7 +101,7 @@ export const Editor = ({ blog }, props) => {
         setLast(res.data.user[0].lastname);
         setId(res.data.user[0].id);
         console.log(res.data);
-        setLoad(false)
+        setLoad(false);
       })
       .catch((err) => {
         console.log(err);
@@ -138,7 +137,7 @@ export const Editor = ({ blog }, props) => {
     }
     return (
       <div className="text-editor">
-           <h1 className=" name-label text-center">Create Blog</h1>
+        <h1 className=" name-label text-center">Create Blog</h1>
         <div className="container mt-5 form-bg">
           <Form>
             <Form.Group as={Col} md="4" controlId="validationCustomUsername">
@@ -148,7 +147,7 @@ export const Editor = ({ blog }, props) => {
                   setSelectedImage(event.target.files[0]);
                 }}
               />
-              <button onClick={onFileSelected}>Upload</button>
+              <Button onClick={onFileSelected}>Upload</Button>
               <InputGroup hasValidation className="input-div">
                 <InputGroup.Text id="inputGroupPrepend" className="blog-input">
                   Blog Title
@@ -164,13 +163,15 @@ export const Editor = ({ blog }, props) => {
                   }}
                 />
               </InputGroup>
-              <Form.Group className="mb-3">
+              <Form.Group className="mb-3 mt-3">
                 <Form.Label>Select Category</Form.Label>
                 <Form.Select
+                  defaultValue={"Select"}
                   onChange={(e) => {
                     setCategory(e.target.value);
                   }}
                 >
+                  <option>Select Category</option>
                   <option>Technology</option>
                   <option>Gaming</option>
                 </Form.Select>

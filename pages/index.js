@@ -50,13 +50,13 @@ const Index = () => {
 
       <div className="container mt-5">
         <h1 className="text-center heading-index-main">Technology Blogs  </h1>
-        <div className="container px-1">
+        <div className="container px-1 mt-3">
         <TechCom />
         </div>
       </div>
       <div className="container mt-5">
         <h1 className="text-center heading-index-main">Gaming Blogs</h1>
-        <div className="container px-1">
+        <div className="container px-1 mt-3">
           <GameCom/>
         </div>
       </div>

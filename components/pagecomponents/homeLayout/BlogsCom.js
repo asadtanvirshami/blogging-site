@@ -10,14 +10,15 @@ import parse, { domToReact, htmlToDOM, Element } from "html-react-parser";
 
 const BlogsCom = ({ blogs }) => {
   const [bogList, setBlogList] = useState([]);
-
+  const [load, setLoad] = useState(false);
   // useEffect(() => {
   //   // setBlogList(blogs);
   //   setLoad(false);
   // }, [bogList]);
 
   useEffect(() => {
-    setBlogList(blogs);
+    setBlogList(blogs)
+    setLoad(blogs)
   }, []);
 
   const likeLog = async (id, i) => {
@@ -45,6 +46,14 @@ const BlogsCom = ({ blogs }) => {
     }
   };
 
+  const renderData = () => {
+    if (load != false) {
+      return (
+        <div className="ld text-center mt-5">
+          <Spinner animation="border" variant="info" />
+        </div>
+      );
+    }
   return (
     <div>
       <div className=" mt-5   ">
@@ -103,5 +112,6 @@ const BlogsCom = ({ blogs }) => {
     </div>
   );
 };
-
+return renderData();
+};
 export default BlogsCom;

@@ -55,15 +55,12 @@ export const Header = ({ data }) => {
                 <Nav.Link className="main-nav-links" href="/createBlog">
                   Create Blog
                 </Nav.Link>
-                <Nav.Link className="main-nav-links" href="/yourBlogs">
-                  Your Blogs
-                </Nav.Link>
                 <Nav.Link className="main-nav-links" href="/contact">
                   Contact Us
                 </Nav.Link>
                 <NavDropdown
                   title={
-                    <span className="text-category my-auto">Dropdown</span>
+                    <span className="text-category my-auto">Categories</span>
                   }
                   className="main-nav-links"
                   id="basic-nav-dropdown"

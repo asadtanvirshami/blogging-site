@@ -77,7 +77,7 @@ export const TechCom = () => {
   const renderData = () => {
     if (load != false) {
       return (
-        <div className="ld text-center">
+        <div className="ld text-center mt-5">
           <Spinner animation="border" variant="info" />
         </div>
       );
