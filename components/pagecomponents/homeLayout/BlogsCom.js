@@ -64,16 +64,17 @@ const BlogsCom = ({ blogs }) => {
                 {blogs.map((bg, index) => {
                   return (
                     <div key={index} className=" main-card-div    ">
-                      <Link href={"/blogs/" + bg.id} key={bg.id}>
                         <Card className="cards ">
                           <img
                             className="blog-img img-fluid"
                             src={bg.blogcover}
-                          />
+                            />
                           <Card.Body className="px-3 pt-4">
+                      <Link href={"/blogs/" + bg.id} key={bg.id}>
                             <Card.Title className="text-heading">
                               {bg.blogtitle}
                             </Card.Title>
+                            </Link>
                             <div className="card-txt">
                               {parse(`${bg.posts.slice(0, 150)}...`)}
                             </div>
@@ -100,7 +101,6 @@ const BlogsCom = ({ blogs }) => {
                             </span>
                           </Card.Body>
                         </Card>
-                      </Link>
                     </div>
                   );
                 })}

@@ -13,10 +13,10 @@ const detail = ({ blog }) => {
     <div className="container ">
       <div>
         <div className="row-main m-auto align-self-center mt-5 mb-5 ">
-          <div className="column-user">
+          <div className="column-user ">
             <img className="blog-user" src={blog.User.pfp} />
           </div>
-          <div className="column-user-detail m-auto ">
+          <div className="column-user-detail  ">
             <ul className="  card-txt-ul">
               <li className="blog-username">@{blog.postedBy} </li>
               <li className="blog-user-detail">{blog.User.bio}</li>

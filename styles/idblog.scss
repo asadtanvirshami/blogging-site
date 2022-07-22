@@ -13,22 +13,23 @@
 
 
 .blog-text{
-    font-size: 24px;
+    font-size: 22px;
     
 }
 
 .blog-heading{
-    font-size: 58px;
+    font-size: 38px;
 }
 
 .blog-time{
     color: gray;
-    font-size: 20px;
+    font-size: 15px;
 
 }
 
 .blog-user{
-width: 150%;
+width: 4%;
+border-radius: 200px;
 }
 
 .blog-user-detail{
@@ -38,10 +39,12 @@ width: 150%;
 .column-user{
     justify-content:  center !important;
     align-items: center !important;
+ 
 }
 
 .blog-username{
-    font-size:22px;
+
+    font-size:18px;
 }
 
 
@@ -77,7 +80,7 @@ width: 150%;
     }
     
     .blog-user{
-    width: 100%;
+    width: 20%;
     }
     
     .blog-user-detail{
